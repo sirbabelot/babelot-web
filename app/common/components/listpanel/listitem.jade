@@ -1,0 +1,14 @@
+.ba-chatlist-item
+  .profile-image-wrapper
+    img(src='{{conversation.img}}' width="50" height="50")
+  
+  .info
+    .info--name {{conversation.name}}
+    .info--preview {{conversation.phone}}
+    
+  .close-icon
+    .icon
+      button(ng-click="removeContact(conversation.name)")
+        svg(fill='#7E7B7B', height='24', viewBox='0 0 24 24', width='24')
+          path(d='M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z')
+          path(d='M0 0h24v24H0z', fill='none')

@@ -1,0 +1,14 @@
+.row
+  .col-xs-10.col-xs-offset-1
+      input.b-searchbar(type='text', placeholder='search...', aria-describedby='basic-addon1')
+.row
+  .col-xs-10.col-xs-offset-1
+    .row
+      .col-xs-6
+          button.btn.b-button(ng-click="$ctrl.setContactsType('guests')") Guests
+      .col-xs-6
+          button.btn.pull-right.b-button(ng-click="$ctrl.setContactsType('team')") Team
+.row
+    ul.ba-chatlist
+        .ba-no-glow(*ngFor='#conversation of guests')
+            list-item([conversation]='conversation')

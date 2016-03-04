@@ -1,0 +1,31 @@
+/* Extend placeholders over classes where possible */
+
+/* Removes blueish glow from objects but not while being selected */
+%no-glow-base
+  outline-color: transparent!important
+  outline-style: none!important
+  outline: none!important
+  box-shadow: none !important
+
+/* Removes blueish glow from objects even while being selected */
+%no-glow
+  @extend %no-glow-base
+  &:focus
+    @extend %no-glow-base
+  &:active
+    @extend %no-glow-base
+
+/* Makes a panel full height and scrollable with a 70px margin at the top */
+%full-height-scroll
+  height: calc(100vh - 70px)
+  overflow: scroll
+
+/* Makes an image a circle, only use on square images */
+%img-circle
+  border-radius: 50%;
+
+/* For making a comonent into a rounded corner card */
+%card
+  background: white!important
+  border-radius: 15px!important
+  border: none!important

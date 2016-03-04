@@ -1,0 +1,21 @@
+.ba-messaging.hidden-xs.hidden-sm
+  header.ba-header
+    .ba-header--wrapper
+      .ba-header--title Babelot
+      .ba-header--username {{user.email}}
+      .ba-header--add-contact
+          button((click)="addContact()") +
+
+  .ba-messaging--content
+    .ba-sidebar-left.ba-bg-white
+      list-panel([guests]='guests' team='team')
+    .ba-center-panel.ba-bg-white
+      chat-panel
+    .ba-sidebar-right
+      sim-preview
+      sim-search-panel
+
+//- MESSAGE FOR USERS ON SMALL SCRENES
+.visible-xs.visible-sm
+  .device-not-supported
+    p This website is only available on desktop devices

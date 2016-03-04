@@ -1,0 +1,27 @@
+.chatcard
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+
+  /* Messages the user sent are styled different than messages receiverd */
+  &.sent
+    flex-direction: row-reverse!important
+    .chatcard--img
+      margin-right: 0px
+      margin-left: 20px
+    .chatcard--text
+      background: $white
+      border: solid 1px $grey-500
+
+  &--img
+    margin-right: 20px
+    img
+      @extend %img-circle
+      border: solid 1px $grey-500
+      margin-top: 5px
+  &--text
+    @include padding-vertical(20px)
+    @include padding-horizontal(30px)
+    border-radius: 30px
+    width: 60%
+    background: $grey-500

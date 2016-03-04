@@ -1,0 +1,14 @@
+$chat-input-height: 73px
+
+.ba-center-panel
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  height: calc(100vh - 70px)
+  .chat-panel
+    &--list
+      overflow: scroll
+      pading-bottom: 20px
+      height: calc(100vh - 70px - $chat-input-height)
+    &--input
+      height: $chat-input-height

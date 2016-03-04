@@ -1,0 +1,43 @@
+.ba-header
+  display: flex
+  flex-direction: column
+  justify-content: center
+  background: $header-blue
+  border: none!important
+  border-radius: 0px
+  height: $header-height!important
+
+  $container-padding: 25px
+
+  &--wrapper
+    display: flex
+    flex-direction: row
+
+  &--title
+    padding-left: $container-padding
+    font-size: 35px
+    color: white
+
+  &--username
+    font-weight: 200
+    font-size: 35px
+    color: white
+    /* Center Item horizontally */
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+
+  &--add-contact
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding-right: $container-padding
+    margin-left: auto
+
+    button
+      @extend %no-glow
+      background: none
+      border: none
+      font-weight: 200
+      font-size: 35px
+      color: white

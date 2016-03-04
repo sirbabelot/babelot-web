@@ -1,0 +1,7 @@
+.ba-center-panel
+  #chatlist.chat-panel--list(scroll-glue)
+    div(ng-repeat="message in chatPanelCtrl.messages track by $index")
+      x-chat-card(message='message')
+  .chat-panel--input
+    form(ng-submit="chatPanelCtrl.sendMessage()")
+      input(type="text", ng-model="chatPanelCtrl.messageToSend", placeholder="message...")
