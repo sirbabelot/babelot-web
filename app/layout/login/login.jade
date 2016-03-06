@@ -1,4 +1,4 @@
 .ba-login
   .login-panel
-    .g-signin2(data-onsuccess='onSignIn')
-    a(href='#', onclick='signOut();') Sign out
+    button(*ngIf='!loggedIn()', (click)='login()') Login
+    button(*ngIf='loggedIn()', (click)='logout()') Logout

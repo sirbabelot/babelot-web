@@ -4,6 +4,7 @@
   "description": "",
   "main": "bundle.js",
   "dependencies": {
+    "angular2-jwt": "0.1.8",
     "apply-loader": "0.1.0",
     "co": "4.6.0",
     "css-loader": "0.23.1",
@@ -27,7 +28,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --devtool eval --config webpack.config.js  --progress --colors --host 0.0.0.0 --port 8000 --display-error-details"
+    "dev": "webpack-dev-server --devtool eval --config webpack.config.js  --progress --colors --host 0.0.0.0 --port 3000 --display-error-details"
   },
   "author": "Dylan Harness <dharness@uwo.ca>",
   "license": "ISC"

@@ -1,8 +1,12 @@
 import {Component, View} from 'angular2/core';
+import {CanActivate} from 'angular2/router';
 import {ListPanel} from '../../common/components/listpanel/listpanel.component'
 import {ChatPanel} from '../../common/components/chatpanel/chatpanel.component'
 import {SimPreview} from '../../common/components/sim/simpreview.component'
 import {SimSearchPanel} from '../../common/components/sim/simsearchpanel.component'
+import {AuthHttp, tokenNotExpired, JwtHelper} from 'angular2-jwt';
+import {User} from '../../common/services/User'
+
 var _ = require('lodash');
 const template = require('./messaging.jade');
 var swal = require('sweetalert');
@@ -12,64 +16,60 @@ declare var require: any;
 declare var _: any;
 declare var co: any;
 
+
 @Component({
-  selector: 'messaging-component',
-  template: template,
-  directives: [ListPanel, ChatPanel, SimPreview, SimSearchPanel]
+    selector: 'messaging-component',
+    template: template,
+    directives: [ListPanel, ChatPanel, SimPreview, SimSearchPanel],
 })
 export class MessagingComponent {
-  user = {email: 'thomas'}
-  team = [];
-  guests = [];
-  constructor() {
+    team = [];
+    guests = [];
 
-    _.times(15, ()=> {
-      this.guests.push({
-        name: 'jzapata@uwo.ca',
-        phone: 'faker.PhoneNumber.phoneNumber()',
-        img: 'http://placehold.it/55x55'
-      });
-    });
+    constructor(public user: User) {
+        // generates team for left panel
+        this.team.push({
+            name: 'Dusty Panson',
+            role: 'Maintenance',
+            img: 'http://placehold.it/55x55'
+        });
+    }
 
-    // generates team for left panel
-    this.team.push({
-      name: 'Dusty Panson',
-      role: 'Maintenance',
-      img: 'http://placehold.it/55x55'
-    });
-  }
+    ngOnInit() {
+      var user = new User();
+      user.email = 'naila nure'
+      this.user = user;
+    }
 
+    addContact() {
+        swal({
+            title: "Add a contact",
+            text: "Enter the contacts email:",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            inputPlaceholder: "noodle@doodle.com"
+        }, (inputValue) => {
+                if (inputValue === false) return false;
+                if (inputValue === "") {
+                    swal.showInputError("You need to write something!");
+                    return false;
+                }
 
-
-  addContact() {
-    swal({
-      title: "Add a contact",
-      text: "Enter the contacts email:",
-      type: "input",
-      showCancelButton: true,
-      closeOnConfirm: false,
-      inputPlaceholder: "noodle@doodle.com"
-    }, (inputValue) => {
-      if (inputValue === false) return false;
-      if (inputValue === "") {
-        swal.showInputError("You need to write something!");
-        return false;
-      }
-
-      // this.user.post('connection', {
-      //     connectionEmail: inputValue
-      //   })
-      //   .then(res => {
-      //     this.guests.length = 0;
-      //     this.ContactsService.add({
-      //       name: res[0].email,
-      //       phone: faker.PhoneNumber.phoneNumber(),
-      //       img: 'http://placehold.it/55x55'
-      //     });
-      //
-      //     swal("Nice!", `${inputValue} added to contacts!`, "success");
-      //   })
-      //   .catch(err => swal.showInputError(err.data))
-    });
-  }
+                // this.user.post('connection', {
+                //     connectionEmail: inputValue
+                //   })
+                //   .then(res => {
+                //     this.guests.length = 0;
+                //     this.ContactsService.add({
+                //       name: res[0].email,
+                //       phone: faker.PhoneNumber.phoneNumber(),
+                //       img: 'http://placehold.it/55x55'
+                //     });
+                //
+                //     swal("Nice!", `${inputValue} added to contacts!`, "success");
+                //   })
+                //   .catch(err => swal.showInputError(err.data))
+            });
+    }
 }
