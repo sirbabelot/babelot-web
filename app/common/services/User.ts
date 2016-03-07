@@ -6,17 +6,24 @@ declare var _: any;
 @Injectable()
 export class User {
 
+  private _nickname: string;
   private _email: string;
+  private _id: string;
   private _contactsList = [];
 
   constructor() {
-    console.log('I am the user')
+    let profile = JSON.parse(localStorage.getItem('profile'));
+    let id_token = localStorage.getItem('id_token', id_token);
+
+    this._nickname = profile.nickname;
+    this._email = profile.email;
+    this._id = id_token;
+
   }
 
-
-  // EMAIL
   set email(email: string) {this._email = email}
   get email() {return this._email}
+  get nickname() {return this._nickname}
 
   // CONTACTS
   get contacts() {

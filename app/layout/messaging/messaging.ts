@@ -35,11 +35,7 @@ export class MessagingComponent {
         });
     }
 
-    ngOnInit() {
-      var user = new User();
-      user.email = 'naila nure'
-      this.user = user;
-    }
+    ngOnInit() {}
 
     logout() {
       localStorage.removeItem('profile');
