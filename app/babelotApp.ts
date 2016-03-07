@@ -7,7 +7,7 @@ import {ProtectedRouterOutlet} from './ProtectedRouterOutlet';
 
 @Component({
     selector: 'babelot-app',
-    template: `<a [routerLink]="['./Messaging']">Messaging</a><router-outlet></router-outlet>`,
+    template: `<router-outlet></router-outlet>`,
     directives: [ROUTER_DIRECTIVES, ProtectedRouterOutlet]
 })
 @RouteConfig([

@@ -3,8 +3,19 @@
     .ba-header--wrapper
       .ba-header--title Babelot
       .ba-header--username {{user.email}}
-      .ba-header--add-contact
-          button((click)="addContact()") +
+  
+      // column
+      .ba-header--user-menu 
+        .dropdown
+          button.dropdown-toggle(type='button', data-toggle='dropdown')
+            | {{user.email}} 
+            span.caret
+          ul.dropdown-menu
+            li((click)="addContact()") Add contact
+            li((click)="logout()") Logout
+  
+  
+  
   .ba-messaging--content
     .ba-sidebar-left.ba-bg-white
       list-panel([guests]='guests' team='team')

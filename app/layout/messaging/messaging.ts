@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {CanActivate} from 'angular2/router';
+import {CanActivate, Router} from 'angular2/router';
 import {ListPanel} from '../../common/components/listpanel/listpanel.component'
 import {ChatPanel} from '../../common/components/chatpanel/chatpanel.component'
 import {SimPreview} from '../../common/components/sim/simpreview.component'
@@ -26,7 +26,7 @@ export class MessagingComponent {
     team = [];
     guests = [];
 
-    constructor(public user: User) {
+    constructor(public user: User, private _router: Router) {
         // generates team for left panel
         this.team.push({
             name: 'Dusty Panson',
@@ -39,6 +39,12 @@ export class MessagingComponent {
       var user = new User();
       user.email = 'naila nure'
       this.user = user;
+    }
+
+    logout() {
+      localStorage.removeItem('profile');
+      localStorage.removeItem('id_token');
+      this._router.navigate(['/Login'])
     }
 
     addContact() {

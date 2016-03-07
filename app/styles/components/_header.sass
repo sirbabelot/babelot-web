@@ -27,7 +27,9 @@
     left: 50%
     transform: translateX(-50%)
 
-  &--add-contact
+  // Column
+  &--user-menu
+    @extend %no-glow
     display: flex
     flex-direction: column
     justify-content: center
@@ -36,8 +38,19 @@
 
     button
       @extend %no-glow
+      color: white
+      font-size: 25px
       background: none
       border: none
-      font-weight: 200
-      font-size: 35px
-      color: white
+
+    .dropdown-menu
+      left: -25%
+      border: none!important
+
+      li
+        @include padding-vertical(10px)
+        padding-left: 20px
+        font-size: 15px
+        &:hover
+          cursor: pointer
+          background: $grey-500

@@ -10,6 +10,7 @@ export class User {
   private _contactsList = [];
 
   constructor() {
+    console.log('I am the user')
   }
 
 
