@@ -40,6 +40,7 @@ export class User {
     this._contactsList.length = 0;
   }
 
+
   private _loadContacts() {
     _.times(1, ()=> {
       this._contactsList.push({
