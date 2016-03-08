@@ -1,4 +1,5 @@
 .ba-login
   .login-panel
+    button(*ngIf='!loggedIn()', (click)='signup()') Signup
     button(*ngIf='!loggedIn()', (click)='login()') Login
     button(*ngIf='loggedIn()', (click)='logout()') Logout

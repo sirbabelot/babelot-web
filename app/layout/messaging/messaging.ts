@@ -35,7 +35,13 @@ export class MessagingComponent {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+      this.guests = this.user.contacts;
+    }
+
+    loadData() {
+      this.user.loadData()
+    }
 
     logout() {
       localStorage.removeItem('profile');

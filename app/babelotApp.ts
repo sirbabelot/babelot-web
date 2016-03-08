@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from 'angular2/core'
 import {RouteConfig, RouterOutlet, Router, ROUTER_DIRECTIVES } from 'angular2/router';
 import {LoginComponent} from './layout/login/login.ts'
 import {MessagingComponent} from './layout/messaging/messaging.ts'

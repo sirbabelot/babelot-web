@@ -17,12 +17,22 @@ export class LoginComponent {
   lock = new Auth0Lock('WzaZ0ltsaHT03Knycz4HyMn7beYMMM9j', 'dharness.auth0.com');
 
   constructor(
-    public router: Router,
-    public user: User
+    public router: Router
   ) {}
 
+  signup() {
+    this.lock.showSignup((err:string, profile:string, id_token:string) => {
+      if(err) {throw new Error(err);}
+      localStorage.setItem('profile', JSON.stringify(profile));
+      localStorage.setItem('id_token', id_token);
+      this.router.navigate(['/Messaging'])
+    })
+  }
+
   login() {
-    this.lock.show((err:string, profile:string, id_token:string) => {
+    this.lock.show({
+      disableSignupAction: false
+    }, (err:string, profile:string, id_token:string) => {
       if(err) {throw new Error(err);}
       localStorage.setItem('profile', JSON.stringify(profile));
       localStorage.setItem('id_token', id_token);

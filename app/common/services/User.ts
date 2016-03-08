@@ -1,4 +1,5 @@
 import {Injectable} from 'angular2/core'
+import {Http, Headers} from 'angular2/http'
 var _ = require('lodash');
 declare var require: any;
 declare var _: any;
@@ -11,14 +12,18 @@ export class User {
   private _id: string;
   private _contactsList = [];
 
-  constructor() {
+  constructor(public http: Http) {
     let profile = JSON.parse(localStorage.getItem('profile'));
-    let id_token = localStorage.getItem('id_token', id_token);
+    let id_token = localStorage.getItem('id_token');
+
+    this.http.get(`https://docker.default/user/${profile.user_id}`)
+        .toPromise()
+        .then(res => console.log(res))
+        .catch((err)=>{console.log(err)});
 
     this._nickname = profile.nickname;
     this._email = profile.email;
     this._id = id_token;
-
   }
 
   set email(email: string) {this._email = email}
