@@ -50,6 +50,7 @@ export class MessagingComponent {
     }
 
     addContact() {
+      this.contact = "okok"
         swal({
             title: "Add a contact",
             text: "Enter the contacts email:",
@@ -63,6 +64,7 @@ export class MessagingComponent {
                     swal.showInputError("You need to write something!");
                     return false;
                 }
+                this.user.addContact();
 
                 // this.user.post('connection', {
                 //     connectionEmail: inputValue
