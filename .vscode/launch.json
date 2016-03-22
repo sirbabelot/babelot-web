@@ -17,6 +17,7 @@
 			"cwd": ".",
 			// Workspace relative or absolute path to the runtime executable to be used. Default is the runtime executable on the PATH.
 			"runtimeExecutable": null,
+			"experimentalDecorators": true,
 			// Optional arguments passed to the runtime executable.
 			"runtimeArgs": ["--nolazy"],
 			// Environment variables passed to the program.
