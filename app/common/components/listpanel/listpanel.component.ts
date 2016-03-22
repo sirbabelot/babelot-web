@@ -1,6 +1,6 @@
 import {Component, Input} from 'angular2/core'
 import {ListItem} from './listitem.component'
-import {User} from '../../services/User'
+import {User} from '../../models/User'
 const template = require('./listpanel.jade')
 declare var require: any
 
@@ -12,10 +12,9 @@ declare var require: any
 })
 export class ListPanel {
   public listMode: string = 'contacts';
-  public searchResults: [] = [];
-  bok = true;
+  public searchResults: any = [];
 
-  @Input() guests;
+  @Input() contacts;
   constructor(public user: User) {}
 
   setListMode(mode) {

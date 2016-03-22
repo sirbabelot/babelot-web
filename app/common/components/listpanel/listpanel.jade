@@ -16,9 +16,9 @@
           button.btn.pull-right.b-button([ngClass]="{active: listMode == 'add'}", (click)="setListMode('add')") Add
 .row
     ul.ba-chatlist(*ngIf="listMode === 'contacts'")
-      .ba-no-glow(*ngFor='#conversation of guests')
-        list-item([conversation]='conversation', [mode]='listMode')
+      .ba-no-glow(*ngFor='#conversation of contacts')
+        list-item([contact]='conversation', [mode]='listMode')
 
     ul.ba-chatlist(*ngIf="listMode === 'add'")
       .ba-no-glow(*ngFor='#user of searchResults')
-        list-item([conversation]="user", [mode]='listMode')
+        list-item([contact]="user", [mode]='listMode')

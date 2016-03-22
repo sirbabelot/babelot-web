@@ -54,3 +54,29 @@
         &:hover
           cursor: pointer
           background: $grey-500
+
+  &--requests
+    @extend %no-glow
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding-right: $container-padding
+
+    button
+      @extend %no-glow
+      color: white
+      font-size: 25px
+      background: none
+      border: none
+
+    .dropdown-menu
+      left: -500%
+      border: none!important
+
+      li
+        @include padding-vertical(10px)
+        padding-left: 20px
+        font-size: 15px
+        &:hover
+          cursor: pointer
+          background: $grey-500
