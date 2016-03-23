@@ -5,6 +5,7 @@
   "main": "bundle.js",
   "dependencies": {
     "angular2-jwt": "0.1.8",
+    "angular2-scroll-glue": "1.0.7",
     "apply-loader": "0.1.0",
     "auth0-lock": "9.0.0",
     "co": "4.6.0",

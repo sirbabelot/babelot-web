@@ -18,6 +18,8 @@ export class Messenger {
   public contacts: any = [];
   public requests: any = [];
   public messages: any = [];
+  public agent: string = "client";
+  public demoMessages: any = [];
   private _identity: string;
   private _token: string;
   private _channels = {};
@@ -43,6 +45,10 @@ export class Messenger {
     return this.socket.on(trigger, func);
   }
 
+  public joinDemo(userid) {
+    this.socket.emit('join demo', userid);
+  }
+
   public register(userid) {
     this.socket.emit('register', userid)
   }
@@ -54,7 +60,8 @@ export class Messenger {
   public sendMessage(options) {
     this.socket.emit('send message', {
       room: options.room,
-      message: options.message
+      message: options.message,
+      author: options.author
     });
   }
 

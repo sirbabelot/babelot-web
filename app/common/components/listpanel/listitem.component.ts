@@ -33,6 +33,7 @@ export class ListItem {
 
   removeContact(contact, $event) {
     $event.stopPropagation();
+    return alert('This feature is turned off in demo mode!');
     this.messenger.removeContact(contact);
   }
 

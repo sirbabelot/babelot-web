@@ -20,5 +20,4 @@
         list-item([contact]='conversation', [mode]='listMode')
 
     ul.ba-chatlist(*ngIf="listMode === 'add'")
-      .ba-no-glow(*ngFor='#user of searchResults')
-        list-item([contact]="user", [mode]='listMode')
+      i(style="padding-left: 30px;") This feature is not available in demo mode

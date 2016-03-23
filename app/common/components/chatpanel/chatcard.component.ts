@@ -13,6 +13,6 @@ export class ChatCard {
   constructor(private _user: User){}
 
   get sentByMe() {
-    return this.message.author === this._user.id;
+    return this.message.author == window.agent;
   }
 }

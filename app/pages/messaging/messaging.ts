@@ -30,13 +30,19 @@ declare var co: any;
 export class MessagingComponent {
 
   contacts: any = [];
+  demoContacts: any = [];
   currentUser: any = {};
   contactRequests: any = [];
+  agent: string = 'client';
   constructor(
     public user: User,
     public messenger: Messenger,
     public conversation: Conversation,
-    private _router: Router){}
+    private _router: Router,
+    private data: RouteData
+    ){
+    this.agent = data.get('agent');
+  }
 
   showRequestList() {
     let dialog = document.getElementById('contactRequests');
@@ -66,19 +72,29 @@ export class MessagingComponent {
 
   ngOnInit() {
     this.contacts = this.user.contacts;
+    let nickname = 'Jon Doe'
+    window.agent = this.agent;
+    if (this.agent == 'client')
+      nickname = 'Exclusive Rentals';
 
-    this.user.loadContacts();
+    this.demoContacts = [{
+      nickname: nickname,
+      img_url: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg'
+    }];
+
+    this.messenger.joinDemo('demo-id');
+
     this.messenger.on('chat message', (data) => {
-      // TODO: make this faster using a hashmap
-      var messageRecipient = _.find(this.user.contacts, (o) => o.room === data.room);
-      messageRecipient.messages.push({
-        body: data.message
+      console.log(data.author, this.agent)
+      this.messenger.demoMessages.push({
+        body: data.message,
+        author: data.author
       })
     });
   }
 
   get currentConversation() {
-    return this.conversation.contact.nickname
+    return this.demoContacts[0].nickname;
   }
 
   logout() {

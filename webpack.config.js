@@ -1,9 +1,10 @@
+/* global __dirname */
 "use strict";
-let webpack = require('webpack');
-let path = require('path');
+var webpack = require('webpack');
+var path = require('path');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
-const lodashPath = path.resolve(__dirname, './node_modules/lodash/lodash.js')
+var lodashPath = path.resolve(__dirname, './node_modules/lodash/lodash.js')
 
 module.exports = {
   entry: {
@@ -12,7 +13,8 @@ module.exports = {
       'reflect-metadata',
       'angular2/core',
       'angular2/router',
-      'angular2/http'
+      'angular2/http',
+      'angular2-scroll-glue/examples/app/ScrollGlue'
     ],
     'app': './app/main'
   },
@@ -28,9 +30,6 @@ module.exports = {
     alias: {
       lodash: lodashPath
     }
-  },
-  module: {
-    noParse: ['ws']
   },
   externals: ['ws'],
   plugins: [

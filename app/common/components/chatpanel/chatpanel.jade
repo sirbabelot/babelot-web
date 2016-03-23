@@ -1,5 +1,5 @@
 .ba-center-panel
-  #chatlist.chat-panel--list
+  #chatlist.chat-panel--list(scroll-glue)
     div(*ngFor="#message of messages")
       chat-card([message]='message')
   .chat-panel--input

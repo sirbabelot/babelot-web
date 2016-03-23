@@ -14,7 +14,6 @@ import {
 declare var require: any;
 var styles = require('./styles/main.sass');
 
-
 bootstrap(BabelotApp,[
   ROUTER_PROVIDERS,
   HTTP_PROVIDERS,
