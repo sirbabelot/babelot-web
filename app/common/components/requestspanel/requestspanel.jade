@@ -1,7 +1,0 @@
-dialog(id="contactRequests")
-  h2 Contact Requests
-  .request-item( *ngFor="#request of requests")
-    p {{ request.nickname }}
-    .actions
-      p.accept( (click)="acceptRequest(request)" ) accept
-      p.reject( (click)="rejectRequest(request)" ) reject

@@ -18,23 +18,22 @@ export class ChatPanel {
   @Input() demoMessages;
   constructor(
     public messenger: Messenger,
-    private _user: User,
-    public conversation: Conversation
+    private _user: User
   ) {}
 
-  get messages() {
-    return this.messenger.demoMessages;
+  dropInput(event) {
+    event.preventDefault();
+    event.target.appendChild(window['dragged'].cloneNode(true));
+    console.log(event.target.innerHTML);
+    window['dragged'] = null;
   }
 
   sendMessage(message, agent) {
-    if (!message.value.length)
+    if (!message.textContent.length)
       return false;
-    console.log(window.agent)
     this.messenger.sendMessage({
-      room: 'demo-id',
-      message: message.value,
-      author: window.agent
+      message: message.textContent
     });
-    message.value = "";
+    message.textContent = "";
   }
 }

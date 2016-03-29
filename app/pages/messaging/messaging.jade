@@ -1,12 +1,15 @@
-#messaging-view.ba-messaging.hidden-xs.hidden-sm(style="display: none")
+#messaging-view.ba-messaging.hidden-xs.hidden-sm
   header.ba-header
     .ba-header--wrapper
       .ba-header--title Babelot
-      .ba-header--username {{currentConversation}}
+      .ba-header--username {{ messenger?.currentConversation?.nickname }}
       .ba-header--user-menu
         .dropdown
-          button.dropdown-toggle(type='button', data-toggle='dropdown')
-            | Exclusive Rentals
+          button.btn.btn-sucess.online-status(
+              (click)="messenger.toggleOnline()",
+              [ngClass]="{'btn-success' : messenger.isOnline, 'btn-danger' : !messenger.isOnline}")
+              div(*ngIf="messenger.isOnline") Online
+              div(*ngIf="!messenger.isOnline") Offline
 
   .ba-messaging--content
     .ba-sidebar-left.ba-bg-white
@@ -15,7 +18,6 @@
       chat-panel
     .ba-sidebar-right
       sim-preview
-      sim-search-panel
 
 //- MESSAGE FOR USERS ON SMALL SCRENES
 .visible-xs.visible-sm

@@ -13,12 +13,8 @@ declare var fetch: any;
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  { path: '/login', name: 'Login', component: LoginComponent
-  }, {
-    path: '/messaging/hotel', name: 'Messaging', component: MessagingComponent, data: {agent: 'hotel'}
-  }, {
-    path: '/messaging/client', name: 'Messaging', component: MessagingComponent, data: {agent: 'client'}
-  }, {
-    path: '/**', redirectTo: ['Messaging'] }
+  { path: '/login', name: 'Login', component: LoginComponent },
+  { path: '/messaging', name: 'Messaging', component: MessagingComponent },
+  { path: '/**', redirectTo: ['Messaging'] }
 ])
 export class BabelotApp { }

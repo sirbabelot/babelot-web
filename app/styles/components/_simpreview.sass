@@ -2,12 +2,34 @@
   @extend %card
   display: flex
   flex-direction: column
-
-  &--graphic
-    margin: auto
-    margin-top: 20px
-
-  &--desc
-    margin: auto
-    margin-top: 20px
+  .spinner
+    margin-left: 125px;
+  .slider
+    display: flex
+    flex-direction: row
     margin-bottom: 20px
+    margin-top: 20px
+    justify-content: center
+    canvas
+      width: 250px
+      height: 250px
+      border-readius: 5px
+      border: solid 1-x black
+      padding-left: 20px
+
+  .info
+    display: flex
+    flex-direction: row
+    margin-bottom: 20px
+    justify-content: center
+    button
+      @extend %no-glow
+      background: $header-blue!important
+      border-radius: 40px!important
+      border: solid 1px $grey-350!important
+      margin-left: 5px
+      margin-right: 5px
+      width: 80px!important
+      height: 30px!important
+      color: white
+

@@ -13,8 +13,7 @@ module.exports = {
       'reflect-metadata',
       'angular2/core',
       'angular2/router',
-      'angular2/http',
-      'angular2-scroll-glue/examples/app/ScrollGlue'
+      'angular2/http'
     ],
     'app': './app/main'
   },

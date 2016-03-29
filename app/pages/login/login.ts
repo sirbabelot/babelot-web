@@ -67,7 +67,7 @@ export class LoginComponent {
           );
       })
   }
-
+  // TODO: find a way around this without using local storage
   stashUser(profile, id_token) {
     localStorage.setItem('profile', JSON.stringify(profile));
     localStorage.setItem('id_token', id_token);
