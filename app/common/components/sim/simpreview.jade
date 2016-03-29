@@ -1,4 +1,8 @@
 .simpreview
-  .simpreview--graphic
-    img(src="http://placehold.it/150X150")
-  .simpreview--desc Image Title
+  .slider
+    div(id="metrics-loading" style="position: relative;")
+    canvas(id="myChart")
+  .info
+    button((click)="getMetrics(0)") Emotion
+    button((click)="getMetrics(1)" ) Language
+    button((click)="getMetrics(2)") Social

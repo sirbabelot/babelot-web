@@ -4,18 +4,17 @@ import {LoginComponent} from './pages/login/login.ts'
 import {MessagingComponent} from './pages/messaging/messaging.ts'
 import {User} from './common/models/User'
 import {Me} from './common/models/Me'
-import {ProtectedRouterOutlet} from './ProtectedRouterOutlet';
 declare var fetch: any;
+
 
 @Component({
   selector: 'babelot-app',
   template: `<router-outlet></router-outlet>`,
-  directives: [ROUTER_DIRECTIVES, ProtectedRouterOutlet]
+  directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  { path: '/login', name: 'Login', component: LoginComponent }, {
-    path: '/messaging', name: 'Messaging', component: MessagingComponent
-  }, {
-    path: '/**', redirectTo: ['Login'] }
+  { path: '/login', name: 'Login', component: LoginComponent },
+  { path: '/messaging', name: 'Messaging', component: MessagingComponent },
+  { path: '/**', redirectTo: ['Messaging'] }
 ])
 export class BabelotApp { }

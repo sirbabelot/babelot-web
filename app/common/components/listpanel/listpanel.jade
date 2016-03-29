@@ -8,17 +8,6 @@
           (keyup)="updateList(searchTerm.value)"
       )
 .row
-  .col-xs-10.col-xs-offset-1
-    .row
-      .col-xs-6
-          button.btn.b-button([ngClass]="{active: listMode == 'contacts'}", (click)="setListMode('contacts')") Contacts
-      .col-xs-6
-          button.btn.pull-right.b-button([ngClass]="{active: listMode == 'add'}", (click)="setListMode('add')") Add
-.row
-    ul.ba-chatlist(*ngIf="listMode === 'contacts'")
-      .ba-no-glow(*ngFor='#conversation of contacts')
-        list-item([contact]='conversation', [mode]='listMode')
-
-    ul.ba-chatlist(*ngIf="listMode === 'add'")
-      .ba-no-glow(*ngFor='#user of searchResults')
-        list-item([contact]="user", [mode]='listMode')
+    ul.ba-chatlist
+      .ba-no-glow(*ngFor='#conversation of conversations')
+        list-item([conversation]='conversation')

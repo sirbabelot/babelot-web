@@ -4,7 +4,7 @@ import {Location, Router, RouterLink, RouteConfig} from 'angular2/router';
 import {Http, HTTP_PROVIDERS, Headers} from 'angular2/http';
 import {AuthHttp, tokenNotExpired, JwtHelper} from 'angular2-jwt';
 import {User} from '../../common/models/User'
-const template = require('./login.jade')
+const template = require('./login.jade');
 var co = require('co');
 declare var require: any;
 declare var Auth0Lock: any;
@@ -65,11 +65,9 @@ export class LoginComponent {
             }
           }
           );
-
-
       })
   }
-
+  // TODO: find a way around this without using local storage
   stashUser(profile, id_token) {
     localStorage.setItem('profile', JSON.stringify(profile));
     localStorage.setItem('id_token', id_token);
@@ -83,5 +81,4 @@ export class LoginComponent {
   loggedIn() {
     return tokenNotExpired();
   }
-
 }

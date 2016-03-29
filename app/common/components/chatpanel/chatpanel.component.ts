@@ -3,6 +3,7 @@ import {Messenger} from '../../services/Messenger'
 import {User} from '../../models/User'
 import {Conversation} from '../../models/Conversation'
 import {ChatCard} from './chatcard.component'
+import {ScrollGlue} from '../../services/ScrollGlue'
 const template = require('./chatpanel.jade')
 declare var require: any
 
@@ -10,26 +11,29 @@ declare var require: any
 @Component({
   selector: 'chat-panel',
   template: template,
-  directives: [ChatCard]
+  directives: [ChatCard, ScrollGlue]
 })
 export class ChatPanel {
 
-
+  @Input() demoMessages;
   constructor(
     public messenger: Messenger,
-    private _user: User,
-    public conversation: Conversation
+    private _user: User
   ) {}
 
-  get messages() {
-    return this.conversation.messages;
+  dropInput(event) {
+    event.preventDefault();
+    event.target.appendChild(window['dragged'].cloneNode(true));
+    console.log(event.target.innerHTML);
+    window['dragged'] = null;
   }
 
-  sendMessage(message) {
+  sendMessage(message, agent) {
+    if (!message.textContent.length)
+      return false;
     this.messenger.sendMessage({
-      room: this.conversation.contact.room,
-      message: message.value
+      message: message.textContent
     });
-    message.value = "";
+    message.textContent = "";
   }
 }

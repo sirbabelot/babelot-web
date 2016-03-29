@@ -1,15 +1,13 @@
 import {Injectable} from 'angular2/core'
-import {Contact} from './Contact'
 
-@Injectable()
+
 export class Conversation {
-  private contact: Contact = new Contact();
-  private messages: any;
-  constructor(){}
 
-  set contact(contact) { this._contact = contact; }
-  get contact() { return this._contact; }
+  public messages: any = [];
 
-  get messages() { return this._contact.messages}
-
+  constructor(
+    public roomId: string,
+    public nickname: string,
+    public fingerprint: string
+    ) {}
 }

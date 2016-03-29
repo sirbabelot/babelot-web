@@ -1,6 +1,6 @@
 import {Component, Input} from 'angular2/core'
 import {ListItem} from './listitem.component'
-import {User} from '../../models/User'
+import {Messenger} from '../../services/Messenger'
 const template = require('./listpanel.jade')
 declare var require: any
 
@@ -11,28 +11,13 @@ declare var require: any
   directives: [ListItem]
 })
 export class ListPanel {
-  public listMode: string = 'contacts';
-  public searchResults: any = [];
 
   @Input() contacts;
-  constructor(public user: User) {}
+  constructor(public messenger: Messenger) {}
 
-  setListMode(mode) {
-    this.listMode = mode;
-  }
-
-  updateList(searchTerm) {
-    if (!searchTerm) {
-      return this.searchResults.length = 0;
-    }
-    this.user.searchGraph(searchTerm)
-        .map((res)=> {
-          res.forEach((e)=> e.isContact = false);
-          return res;
-        })
-        .subscribe(
-          (data)=> this.searchResults = data,
-          (e)=> console.log(e)
-        )
+  get conversations() {
+    var convos: any = [];
+    this.messenger.conversationsMap.forEach((e) => convos.push(e));
+    return convos;
   }
 }

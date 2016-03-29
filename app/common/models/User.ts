@@ -1,6 +1,5 @@
 import {Injectable} from 'angular2/core'
 import {Http, Headers} from 'angular2/http'
-import {Contact} from './Contact'
 import {Messenger} from './../services/Messenger'
 var _ = require('lodash');
 var swal = require('sweetalert');
@@ -31,7 +30,7 @@ export class User {
     this._token = id_token;
     this._imgUrl = profile.img_url;
 
-    this.messenger.register(this._id);
+    // this.messenger.register(this._id);
   }
 
   get id() { return this._id; }
@@ -49,15 +48,15 @@ export class User {
       (data) => {
         data.forEach((contactInfo) => {
           let room = [this._id, contactInfo.id].sort().join('::');
-          this.messenger.joinRoom(room);
+          // this.messenger.joinRoom(room);
           this._contactsList.length = 0;
-          this._contactsList.push(new Contact(
-            contactInfo.id,
-            contactInfo.email,
-            contactInfo.nickname,
-            contactInfo.img_url,
+          var contact = {
+            id: contactInfo.id,
+            email: contactInfo.email,
+            img_url: contactInfo.img_url,
             room
-            ));
+          };
+          console.log(contact);
         })
       }, (e) => swal("Oops...", e.text(), "error"));
   }
@@ -89,7 +88,7 @@ export class User {
 
   isContact() {return true}
 
-  searchGraph(searchTerm) {
+  searchGraph(searchTerm): any{
     return this.http.get(`https://docker.default/users/search?email=${searchTerm}`)
       .map((res) => JSON.parse(res.text()))
   }
@@ -103,19 +102,5 @@ export class User {
       }
       this.loadContacts();
     })
-  }
-
-  serialize(asString:boolean) {
-    let importantData = {
-      nickname: this._nickname,
-      email: this._email,
-      id: this._id,
-      token: this._token,
-      img_url: this._imgUrl
-    };
-    if (asString) {
-      return `${importantData}`
-    }
-    return importantData;
   }
 }
