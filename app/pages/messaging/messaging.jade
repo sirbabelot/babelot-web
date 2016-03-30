@@ -3,7 +3,9 @@
     .ba-header--wrapper
       .ba-header--title Babelot
       .ba-header--username {{ messenger?.currentConversation?.nickname }}
-      .ba-header--user-menu
+      .ba-header--user-menu(style="display: flex; flex-direction: row; color: white")
+        a(style="color:white; padding: 10px") settings
+        a(style="color:white; padding: 10px") messages
         .dropdown
           button.btn.btn-sucess.online-status(
               (click)="messenger.toggleOnline()",
