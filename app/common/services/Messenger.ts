@@ -25,6 +25,7 @@ export class Messenger {
     this.socket.on('message from server', (msg) => console.log(msg) );
     this.socket.on('client.nowOnline', (msg) => {
       let conversation = new Conversation(msg.roomId, msg.nickname, msg.fingerprint);
+      console.log(conversation);
       this.conversationsMap.set(msg.fingerprint, conversation);
       this.currentConversation = conversation;
       this.sendMessage({message: 'Welcome to Canada'});
@@ -72,7 +73,8 @@ export class Messenger {
   }
 
   public removeConversation(conversation) {
-    console.log(conversation);
+    alert("NO")
+    // this.conversationsMap.delete(conversation.fingerprint);
   }
 
 
