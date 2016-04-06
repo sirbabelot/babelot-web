@@ -15,7 +15,7 @@ declare var require: any;
   { path: '/messaging', component: MessagingComponent, name: 'Messaging' }
 ])
 export class DashboardComponent {
-
+  public user: any;
   constructor(public router: Router, public auth: Auth) {
     var currentUser = auth.currentUser;
     this.user = JSON.parse(currentUser);

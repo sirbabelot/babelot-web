@@ -46,13 +46,13 @@ export class MessagingComponent {
   }
 
   routerOnActivate() {
-    let profile = JSON.parse(localStorage.getItem('profile'));
-    let id_token = localStorage.getItem('id_token');
-    let headers = new Headers();
-    headers.append('Authorization', `Bearer ${id_token}`);
+    // let profile = JSON.parse(localStorage.getItem('profile'));
+    // let id_token = localStorage.getItem('id_token');
+    // let headers = new Headers();
+    // headers.append('Authorization', `Bearer ${id_token}`);
 
-    fetch(`https://docker.default/users/me`, { headers: headers })
-      .then((res) => res.json());
+    // fetch(`https://docker.default/users/me`, { headers: headers })
+    //   .then((res) => res.json());
   }
 
   logout() {

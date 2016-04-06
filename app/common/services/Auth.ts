@@ -38,7 +38,16 @@ export class Auth {
     });
   }
 
-  login() {}
+  login(user, onFailure, onSuccess) {
+    this.auth0.login({
+      connection: this.DB_CONNECTION,
+      email: user.email,
+      password: user.password,
+    }, (err, profile, id_token, access_token)=> {
+      if (err) { return onFailure(err); }
+      onSuccess({ profile, id_token, access_token });
+    });
+  }
 
   logout() {
     localStorage.removeItem('profile');

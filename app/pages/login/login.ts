@@ -26,16 +26,22 @@ export class LoginComponent {
 
   signup() {
     this.auth.signup(this.user, (err)=> {
-      console.log(err);
+      console.warn(err);
     }, (res)=> {
       this.stashUser(res.profile, res.id_token);
       this.router.navigate(['/Dashboard']);
     })
   }
 
-  login() { }
+  login() {
+    this.auth.login(this.user, (err) => {
+      console.warn(err);
+    }, (res) => {
+      this.stashUser(res.profile, res.id_token);
+      this.router.navigate(['/Dashboard']);
+    });
+  }
 
-  // TODO: find a way around this without using local storage
   stashUser(profile, id_token) {
     localStorage.setItem('profile', JSON.stringify(profile));
     localStorage.setItem('id_token', id_token);
