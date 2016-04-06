@@ -1,0 +1,27 @@
+#messaging-view.ba-messaging.hidden-xs.hidden-sm
+  //- header.ba-header
+  //-   .ba-header--wrapper
+  //-     .ba-header--title Babelot
+  //-     .ba-header--username {{ messenger?.currentConversation?.nickname }}
+  //-     .ba-header--user-menu(style="display: flex; flex-direction: row; color: white")
+  //-       a(style="color:white; padding: 10px") settings
+  //-       a(style="color:white; padding: 10px") messages
+  //-       .dropdown
+  //-         button.btn.btn-sucess.online-status(
+  //-             (click)="messenger.toggleOnline()",
+  //-             [ngClass]="{'btn-success' : messenger.isOnline, 'btn-danger' : !messenger.isOnline}")
+  //-             div(*ngIf="messenger.isOnline") Online
+  //-             div(*ngIf="!messenger.isOnline") Offline
+
+  .ba-messaging--content
+    .ba-sidebar-left.ba-bg-white
+      list-panel([contacts]='demoContacts')
+    .ba-center-panel.ba-bg-white
+      chat-panel
+    .ba-sidebar-right
+      sim-preview
+
+//- MESSAGE FOR USERS ON SMALL SCRENES
+.visible-xs.visible-sm
+  .device-not-supported
+    p This website is only available on desktop devices

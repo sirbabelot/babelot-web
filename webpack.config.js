@@ -73,6 +73,9 @@ module.exports = {
     }, {
       test: /\.json$/,
       loader: 'json-loader'
+    }, {
+        test: /\.png$/,
+        loader: "url-loader?mimetype=image/png"
     }]
   }
 };
