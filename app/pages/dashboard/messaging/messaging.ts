@@ -1,14 +1,14 @@
-///<reference path="./../../typings/typings.d.ts"/>
+///<reference path="./../../../typings/typings.d.ts"/>
 import {Component, View} from 'angular2/core';
 import {CanActivate, Router, RouteData} from 'angular2/router';
 import {AuthHttp, tokenNotExpired, JwtHelper} from 'angular2-jwt';
-import {ListPanel} from '../../common/components/listpanel/listpanel.component'
-import {ChatPanel} from '../../common/components/chatpanel/chatpanel.component'
-import {SimPreview} from '../../common/components/sim/simpreview.component'
-import {Messenger} from '../../common/services/Messenger'
-import {User} from '../../common/models/User'
-import {Me} from '../../common/models/Me'
-import {Conversation} from '../../common/models/Conversation'
+import {ListPanel} from '../../../common/components/listpanel/listpanel.component'
+import {ChatPanel} from '../../../common/components/chatpanel/chatpanel.component'
+import {SimPreview} from '../../../common/components/sim/simpreview.component'
+import {Messenger} from '../../../common/services/Messenger'
+import {User} from '../../../common/models/User'
+import {Me} from '../../../common/models/Me'
+import {Conversation} from '../../../common/models/Conversation'
 
 
 var _ = require('lodash');

@@ -4,6 +4,7 @@ import {bootstrap}  from 'angular2/platform/browser';
 import {BabelotApp} from './babelotApp';
 import {User} from './common/models/User'
 import {Messenger} from './common/services/Messenger'
+import {Auth} from './common/services/Auth'
 import {HTTP_PROVIDERS, ConnectionBackend} from 'angular2/http'
 import {
   ROUTER_PROVIDERS,
@@ -20,5 +21,6 @@ bootstrap(BabelotApp,[
   ConnectionBackend,
   provide(LocationStrategy, {useClass: HashLocationStrategy}),
   User,
-  Messenger
+  Messenger,
+  Auth
 ]);

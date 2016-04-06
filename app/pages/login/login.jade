@@ -5,7 +5,30 @@
     .name
       img(src=require("./../../assets/babelot_test_pacifico.png"))
     .buttons
-      button.signup((click)='signup()') Signup
-      button.login((click)='login()') Login
+      button.signup((click)="showModal('signupPopup')") Signup
+      button.login((click)="showModal('loginPopup')") Login
   .advert.text-center
     img(src=require('./../../assets/lading_pg_img.png'))
+
+
+dialog#signupPopup
+  form
+    fieldset
+      legend Sign up
+      p
+        input([(ngModel)]="user.email" type='email', placeholder='Email', required='')
+      p
+        input([(ngModel)]="user.password" type='password', placeholder='Password', required='')
+      p
+        input([(ngModel)]="user.businessName" type='text', placeholder='Business name', required='')
+      input(type='submit', value='Sign up', (click)="signup()")
+
+dialog#loginPopup
+  form
+    fieldset
+      legend Login
+      p
+        input([(ngModel)]="user.email" type='email', placeholder='Email', required='')
+      p
+        input([(ngModel)]="user.password" type='password', placeholder='Password', required='')
+      input(type='submit', value='Login', (click)="login()")

@@ -1,0 +1,19 @@
+header.ba-header
+  .ba-header--wrapper
+    .ba-header--title Babelot
+    .ba-header-right-menu
+      .items
+        img(src="https://myspace.com/common/images/user.png")
+        .dropdown
+          button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+            | {{user?.nickname}}
+            span.caret
+          ul.dropdown-menu.dropdown-menu-right
+            li
+              a([routerLink]="['Settings']") Settings
+            li
+              a([routerLink]="['Messaging']") Messaging
+            li
+              a((click)="logout()") Logout
+
+router-outlet

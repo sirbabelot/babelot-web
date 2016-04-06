@@ -3,6 +3,34 @@
   flex-direction: row
   .buttons
     float: right
+
+.ba-header-right-menu
+  margin-right: 20px
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+  .items
+    display: flex
+    flex-direction: row
+    .dropdown
+      height: 50px
+
+      button
+        @extend %no-glow
+        margin-left: 10px
+        height: 50px
+        background: none
+        border: none
+      button:active
+        background: none!important
+      button:focus
+        background: none!important
+    img
+      @extend %img-circle
+      width: 50px
+      height: 50px
+
 .ba-header
   display: flex
   flex-direction: column
@@ -17,6 +45,7 @@
   &--wrapper
     display: flex
     flex-direction: row
+    justify-content: space-between
 
   &--title
     padding-left: $container-padding

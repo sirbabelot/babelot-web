@@ -1,9 +1,7 @@
 import {Component} from 'angular2/core'
-import {RouteConfig, RouterOutlet, Router, ROUTER_DIRECTIVES, RouteData} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {LoginComponent} from './pages/login/login.ts'
-import {MessagingComponent} from './pages/messaging/messaging.ts'
-import {User} from './common/models/User'
-import {Me} from './common/models/Me'
+import {DashboardComponent} from './pages/dashboard/dashboard.ts'
 declare var fetch: any;
 
 
@@ -13,8 +11,8 @@ declare var fetch: any;
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  { path: '/login', name: 'Login', component: LoginComponent },
-  { path: '/messaging', name: 'Messaging', component: MessagingComponent },
-  { path: '/**', redirectTo: ['Messaging'] }
+  { path: '/dashboard/...', component: DashboardComponent, name: 'Dashboard' },
+  { path: '/login', component: LoginComponent, name: 'Login'},
+  { path: '/**', redirectTo: ['Dashboard'] }
 ])
 export class BabelotApp { }

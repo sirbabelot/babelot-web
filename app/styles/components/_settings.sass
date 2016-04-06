@@ -1,0 +1,41 @@
+.settings
+  display: flex
+  flex-direction: row
+  .side-panel
+    background: white
+    height: 100%
+    width: 400px
+  img
+    margin-top: 20px
+    width: 100px
+
+.center-panel
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: center
+
+.setup-card
+  background: white
+  border-radius: 5px
+  height: 450px
+  width: 700px
+  margin-top: 30px
+  .title
+    margin: 20px
+  .info
+    margin: 20px
+    textarea
+      padding: 10px
+      resize: none
+      width: 590px
+      height: 160px
+      @extend %no-glow
+    button
+      @extend %no-glow
+      background: #8DED82
+      border: none
+      border-radius: 2px
+      color: white
+      width: 200px
+      height: 50px

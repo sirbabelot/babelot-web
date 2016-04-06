@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core'
 import {Http, Headers} from 'angular2/http'
 import {Messenger} from './../services/Messenger'
+import {Auth} from './../services/Auth'
 var _ = require('lodash');
 var swal = require('sweetalert');
 declare var require: any;
@@ -18,19 +19,22 @@ export class User {
   private _token: string;
   private _currentChat: any;
 
-  constructor(public http: Http, public messenger: Messenger) {
+  constructor(public http: Http, public messenger: Messenger, public auth: Auth) {
     let profile = JSON.parse(localStorage.getItem('profile'));
     let id_token = localStorage.getItem('id_token');
 
-    // TODO find a non-invasive way to do this
-    this.http._defaultOptions.headers.append('Authorization', `Bearer ${id_token}`);
-    this._nickname = profile.nickname;
-    this._email = profile.email;
-    this._id = profile.id;
-    this._token = id_token;
-    this._imgUrl = profile.img_url;
+    let domain = 'dharness.auth0.com';
+    let clientId = 'WzaZ0ltsaHT03Knycz4HyMn7beYMMM9j';
 
-    // this.messenger.register(this._id);
+    this.lock = new Auth0Lock(clientId, domain, {});
+
+    // TODO find a non-invasive way to do this
+    // this.http._defaultOptions.headers.append('Authorization', `Bearer ${id_token}`);
+    this._nickname = 'profile.nickname';
+    this._email = 'profile.email';
+    this._id = 'profile.id';
+    this._token = 'id_token';
+    this._imgUrl = 'profile.img_url';
   }
 
   get id() { return this._id; }
