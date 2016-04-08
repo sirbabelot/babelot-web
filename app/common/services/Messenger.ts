@@ -16,7 +16,6 @@ export class Messenger {
   private businessId: string = 'ExclusiveRentals.com';
   public isOnline: boolean = false;
   public currentConversation: any;
-  public conversationsList: Conversation[] = new Array<Conversation>();
   public conversationsMap: Map<string, Conversation> = new Map<string, Conversation>();
 
   constructor() {
@@ -25,11 +24,20 @@ export class Messenger {
     this.socket.on('message from server', (msg) => console.log(msg) );
     this.socket.on('client.nowOnline', (msg) => {
       let conversation = new Conversation(msg.roomId, msg.nickname, msg.fingerprint);
-      console.log(conversation);
+      conversation.online = false;
+      if (msg.status == 'online') {
+        conversation.online = true;
+      }
       this.conversationsMap.set(msg.fingerprint, conversation);
       this.currentConversation = conversation;
       this.sendMessage({message: 'Welcome to Canada'});
     });
+
+    this.socket.on('client.statusChanged', (data) => {
+      console.log('client: ', data);
+      this.conversationsMap.get(data.fingerprint).online = false;
+    });
+
     this.socket.on('direct message', (msg) => this.receiveMessage(msg));
 
     this.toggleOnline();
