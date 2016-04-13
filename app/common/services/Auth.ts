@@ -39,7 +39,7 @@ export class Auth {
   }
 
   login(user, onFailure, onSuccess) {
-    this.auth0.login({
+    this.auth0.loginWithUsernamePassword({
       connection: this.DB_CONNECTION,
       email: user.email,
       password: user.password,
