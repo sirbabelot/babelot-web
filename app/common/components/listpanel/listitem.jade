@@ -4,7 +4,7 @@
 
   .info
     .info--name {{ conversation.nickname }}
-    .info--preview none
+    .info--preview {{ conversation.online }}
   .close-icon
     .icon
       button((click)="removeContact(conversation, $event)")
