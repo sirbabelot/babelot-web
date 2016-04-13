@@ -29,7 +29,6 @@ export class Auth {
       email: user.email,
       password: user.password
     }, (err, profile, id_token) => {
-      console.log('here');
       if (err) { return onFailure(err); }
       // successful signup, add the meta-data
       var user_metadata = { businessName: user.businessName };
