@@ -29,6 +29,7 @@ export class Auth {
       email: user.email,
       password: user.password
     }, (err, profile, id_token) => {
+      console.log('here');
       if (err) { return onFailure(err); }
       // successful signup, add the meta-data
       var user_metadata = { businessName: user.businessName };
@@ -39,7 +40,7 @@ export class Auth {
   }
 
   login(user, onFailure, onSuccess) {
-    this.auth0.login({
+    this.auth0.loginWithUsernamePassword({
       connection: this.DB_CONNECTION,
       email: user.email,
       password: user.password,
