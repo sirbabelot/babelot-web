@@ -10,5 +10,11 @@ declare var require: any;
   template: template
 })
 export class SettingsComponent {
-  constructor() {}
+  public scriptText: string;
+  constructor() {
+    var url = 'www.babelot.ca/exclusiverentals.com';
+    this.scriptText = `
+      <script src="${url}"></script>
+    `
+  }
 }

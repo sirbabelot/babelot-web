@@ -1,5 +1,7 @@
 import {Injectable} from 'angular2/core'
+var Auth0 = require('auth0-js');
 declare var Auth0: any;
+declare var require: any;
 declare var $: any;
 
 

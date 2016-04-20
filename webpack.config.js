@@ -2,6 +2,7 @@
 "use strict";
 var webpack = require('webpack');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 var lodashPath = path.resolve(__dirname, './node_modules/lodash/lodash.js')
@@ -9,17 +10,22 @@ var lodashPath = path.resolve(__dirname, './node_modules/lodash/lodash.js')
 module.exports = {
   entry: {
     'angular2': [
+      'angular2/bundles/angular2-polyfills',
       'rxjs',
       'reflect-metadata',
       'angular2/core',
       'angular2/router',
-      'angular2/http'
+      'angular2/http',
+      // TODO (dharness), these should be in a sperate chunk,
+      // or rename this chunk
+      'jquery',
+      'bootstrap'
     ],
     'app': './app/main'
   },
   output: {
-    path: __dirname + '/build/',
-    publicPath: 'build/',
+    path: `${__dirname}/build`,
+    publicPath: '/build',
     filename: '[name].js',
     sourceMapFilename: '[name].js.map',
     chunkFilename: '[id].chunk.js'
@@ -33,17 +39,19 @@ module.exports = {
   externals: ['ws'],
   plugins: [
     new webpack.ProvidePlugin({
-      _: 'lodash'
+      _: 'lodash',
+      jQuery: 'jquery',
+      $: 'jquery'
     }),
-    new CommonsChunkPlugin({
-      name: 'angular2',
-      filename: 'angular2.js',
-      minChunks: Infinity
-    }),
-    new CommonsChunkPlugin({
-      name: 'common',
-      filename: 'common.js'
-    })
+    // new CommonsChunkPlugin({
+    //   name: 'angular2',
+    //   filename: 'angular2.js',
+    //   minChunks: Infinity
+    // }),
+    // new CommonsChunkPlugin({
+    //   name: 'common',
+    //   filename: 'common.js'
+    // })
   ],
   module: {
     loaders: [{
@@ -76,6 +84,12 @@ module.exports = {
     }, {
         test: /\.png$/,
         loader: "url-loader?mimetype=image/png"
+    }, {
+      test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9]|2)?$/,
+      loader: "url-loader?limit=10000&minetype=application/font-woff"
+    }, {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "file-loader"
     }]
   }
 };
