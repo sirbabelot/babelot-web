@@ -12,7 +12,8 @@ module.exports = {
       'angular2/bundles/angular2-polyfills'
     ],
     'vendor': [
-      'bootstrap'
+      'bootstrap',
+      'spin.js/spin.js'
     ],
     'angular2': [
       'rxjs',
