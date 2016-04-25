@@ -5,8 +5,6 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
-var lodashPath = path.resolve(__dirname, './node_modules/lodash/lodash.js')
-
 module.exports = {
   entry: {
     'angular2': [
@@ -18,8 +16,6 @@ module.exports = {
       'angular2/http',
       // TODO (dharness), these should be in a sperate chunk,
       // or rename this chunk
-      'jquery',
-      'bootstrap'
     ],
     'app': './app/main'
   },
@@ -31,22 +27,18 @@ module.exports = {
     chunkFilename: '[id].chunk.js'
   },
   resolve: {
-    extensions: ['', '.ts', '.js', '.json', '.css', '.html', '.jade'],
-    alias: {
-      lodash: lodashPath
-    }
+    extensions: ['', '.ts', '.js', '.json', '.css', '.html', '.jade']
   },
   externals: ['ws'],
   plugins: [
     new webpack.ProvidePlugin({
-      _: 'lodash',
       jQuery: 'jquery',
       $: 'jquery'
     }),
-    new HtmlWebpackPlugin({
-      filename: '../index.html',
-      template: './template.html'
-    })
+    // new HtmlWebpackPlugin({
+    //   filename: '../index.html',
+    //   template: './template.html'
+    // })
   ],
   module: {
     loaders: [{

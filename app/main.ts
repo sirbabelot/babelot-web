@@ -1,4 +1,4 @@
-import 'zone.js'
+/// <reference path="../node_modules/angular2/typings/browser.d.ts" />
 import 'reflect-metadata'
 import {provide} from 'angular2/core'
 import {bootstrap}  from 'angular2/platform/browser'
