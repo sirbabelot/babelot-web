@@ -8,6 +8,8 @@ const template = require('./login.jade');
 declare var require: any;
 declare var $: any;
 
+// console.log(require("./../../assets/B.png"));
+
 @Component({
   selector: 'login-component',
   template: template

@@ -43,15 +43,10 @@ module.exports = {
       jQuery: 'jquery',
       $: 'jquery'
     }),
-    // new CommonsChunkPlugin({
-    //   name: 'angular2',
-    //   filename: 'angular2.js',
-    //   minChunks: Infinity
-    // }),
-    // new CommonsChunkPlugin({
-    //   name: 'common',
-    //   filename: 'common.js'
-    // })
+    new HtmlWebpackPlugin({
+      filename: '../index.html',
+      template: './template.html'
+    })
   ],
   module: {
     loaders: [{
