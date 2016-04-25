@@ -7,27 +7,30 @@ var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 module.exports = {
   entry: {
+    'polyfills': [
+      'es6-shim/es6-shim.js',
+      'angular2/bundles/angular2-polyfills'
+    ],
+    'vendor': [
+      'bootstrap'
+    ],
     'angular2': [
-      'angular2/bundles/angular2-polyfills',
       'rxjs',
-      'reflect-metadata',
       'angular2/core',
       'angular2/router',
-      'angular2/http',
-      // TODO (dharness), these should be in a sperate chunk,
-      // or rename this chunk
+      'angular2/http'
     ],
     'app': './app/main'
   },
   output: {
     path: `${__dirname}/build`,
-    publicPath: '/build',
+    publicPath: '',
     filename: '[name].js',
     sourceMapFilename: '[name].js.map',
     chunkFilename: '[id].chunk.js'
   },
   resolve: {
-    extensions: ['', '.ts', '.js', '.json', '.css', '.html', '.jade']
+    extensions: ['', '.ts', '.js', '.json', '.css', '.html']
   },
   externals: ['ws'],
   plugins: [
@@ -35,10 +38,10 @@ module.exports = {
       jQuery: 'jquery',
       $: 'jquery'
     }),
-    // new HtmlWebpackPlugin({
-    //   filename: '../index.html',
-    //   template: './template.html'
-    // })
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './template.html'
+    })
   ],
   module: {
     loaders: [{
@@ -77,6 +80,7 @@ module.exports = {
     }, {
       test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: "file-loader"
-    }]
+    }],
+    noParse: [/.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/, /angular2-polyfills\.js/]
   }
 };

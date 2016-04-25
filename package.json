@@ -5,9 +5,11 @@
   "dependencies": {
     "angular2": "2.0.0-beta.15",
     "angular2-jwt": "0.1.12",
+    "apply-loader": "0.1.0",
     "auth0-js": "6.8.0",
     "bluebird": "3.3.5",
     "bootstrap": "3.3.6",
+    "bootstrap-sass": "3.3.6",
     "co": "4.6.0",
     "css-loader": "0.23.1",
     "dragula": "3.6.8",
@@ -18,6 +20,8 @@
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.16.0",
     "install": "0.6.1",
+    "jade": "1.11.0",
+    "jade-html-loader": "0.0.3",
     "jade-loader": "0.8.0",
     "jquery": "2.2.3",
     "lodash": "4.11.1",
@@ -39,6 +43,7 @@
     "typescript": "1.8.10",
     "url-loader": "^0.5.7",
     "webpack-hot-middleware": "2.10.0",
+    "zone": "0.3.4",
     "zone.js": "0.6.12"
   },
   "devDependencies": {
@@ -64,5 +69,5 @@
     "url": "https://github.com/sirbabelot/babelot-web/issues"
   },
   "homepage": "https://github.com/sirbabelot/babelot-web#readme",
-  "description": ""
+  "description": "Angular2 web client for Bablot"
 }

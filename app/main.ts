@@ -17,8 +17,6 @@ declare var require: any;
 var styles = require('./styles/main.sass');
 
 
-enableProdMode();
-
 bootstrap(BabelotApp,[
   ROUTER_PROVIDERS,
   HTTP_PROVIDERS,
