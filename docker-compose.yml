@@ -1,6 +1,5 @@
-node:
+bablot_web_node:
   build: .
-  ports:
-    - "3001:3001"
+  command: echo 'ready'
   volumes:
-    - ./:/usr/src/app
+    - .:/home/app/bablot_web

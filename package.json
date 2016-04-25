@@ -72,5 +72,6 @@
     "url": "https://github.com/sirbabelot/babelot-web/issues"
   },
   "homepage": "https://github.com/sirbabelot/babelot-web#readme",
-  "description": "Angular2 web client for Bablot"
+  "description": "Angular2 web client for Bablot",
+  "keywords": []
 }
