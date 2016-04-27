@@ -30,9 +30,11 @@ export class SimPreview {
     if (this.messenger.receivedMessages.length == 0)
       return false;
 
+    var messages = this.messenger.receivedMessages.join(' ');
+
     fetch(`https://docker.default/tone`, {
       method: 'POST',
-      body: JSON.stringify({ "text": this.messenger.receivedMessages })
+      body: JSON.stringify({ "text": messages })
     })
       .then((res) => res.json())
       .then((data) => {
@@ -52,9 +54,7 @@ export class SimPreview {
           ]
         };
 
-        var p = JSON.parse(data.text);
-        console.log(p);
-        let tones = p.document_tone.tone_categories[type].tones;
+        let tones = data.document_tone.tone_categories[type].tones;
         tones.forEach((toneData) => {
           graphData.labels.push(toneData.tone_name);
           graphData.datasets[0].data.push(toneData.score);
