@@ -17,10 +17,11 @@ export class Messenger {
   public isOnline: boolean = false;
   public currentConversation: any;
   public conversationsMap: Map<string, Conversation> = new Map<string, Conversation>();
+  public receivedMessages: string[];
 
   constructor() {
     this.socket = io('https://docker.default/ExclusiveRentals.com', { path: '/babelot/socket.io' });
-
+    this.receivedMessages = [];
     this.socket.on('message from server', (msg) => console.log(msg) );
     this.socket.on('client.nowOnline', (msg) => {
       let conversation = new Conversation(msg.roomId, msg.nickname, msg.fingerprint);
@@ -46,6 +47,7 @@ export class Messenger {
   private receiveMessage(data) {
     let toConvo = this.conversationsMap.get(data.fingerprint);
     toConvo.messages.push({ body: data.message });
+    this.receivedMessages.push(data.message);
   }
 
   public sendMessage(options) {
