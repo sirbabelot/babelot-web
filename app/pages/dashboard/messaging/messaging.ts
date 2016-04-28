@@ -1,5 +1,4 @@
-///<reference path="./../../../typings/typings.d.ts"/>
-import {Component, View} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {CanActivate, Router, RouteData} from 'angular2/router';
 import {AuthHttp, tokenNotExpired, JwtHelper} from 'angular2-jwt';
 import {ListPanel} from '../../../common/components/listpanel/listpanel.component'

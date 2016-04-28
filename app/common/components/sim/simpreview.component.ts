@@ -2,7 +2,7 @@ import {Component} from 'angular2/core'
 import {Messenger} from '../../services/Messenger'
 const template = require('./simpreview.jade')
 declare var require: any;
-declare var Spinner: any;
+var Spinner = require('spin.js/spin.js');
 declare var fetch: any;
 declare var Chart: any;
 var _ = require('lodash');
