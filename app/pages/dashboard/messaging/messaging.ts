@@ -1,4 +1,3 @@
-///<reference path="./../../../typings/typings.d.ts"/>
 import {Component} from 'angular2/core';
 import {CanActivate, Router, RouteData} from 'angular2/router';
 import {AuthHttp, tokenNotExpired, JwtHelper} from 'angular2-jwt';

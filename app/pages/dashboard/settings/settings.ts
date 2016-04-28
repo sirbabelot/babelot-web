@@ -12,9 +12,20 @@ declare var require: any;
   template: template
 })
 export class SettingsComponent {
-  constructor(private _router: Router) {}
+
+  public scriptText: string;
+
+  constructor(private _router: Router) {
+    var url = 'www.babelot.ca/exclusiverentals.com';
+    this.scriptText = `
+      <script src="${url}"></script>
+    `
+  }
   
   gotoMessaging() {
     this._router.navigate(['Messaging']);
   }
 }
+
+  
+

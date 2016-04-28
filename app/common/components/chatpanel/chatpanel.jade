@@ -3,5 +3,5 @@
     div(*ngFor="#message of messenger.currentConversation?.messages")
       chat-card([message]='message')
   .chat-panel--input
-    form
+    form(*ngIf="messenger.currentConversation?.messages?.length")
       .messageInput(contentEditable="true", #messageToSend, (drop)="dropInput($event)", (keyup.enter)="sendMessage(messageToSend)")
