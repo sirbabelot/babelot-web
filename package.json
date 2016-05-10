@@ -17,6 +17,7 @@
     "exports-loader": "0.6.3",
     "express": "4.13.4",
     "faker": "3.0.1",
+    "forever": "^0.15.1",
     "fs": "0.0.2",
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.16.0",
@@ -35,7 +36,6 @@
     "sass-loader": "3.2.0",
     "socket.io-client": "1.4.5",
     "spin.js": "git+https://github.com/fgnass/spin.js.git",
-    "static-file-loader": "0.4.0",
     "style-loader": "0.13.1",
     "sweetalert": "1.1.3",
     "to-string-loader": "1.1.3",
@@ -44,21 +44,22 @@
     "tsd": "0.6.5",
     "typescript": "1.8.10",
     "url-loader": "^0.5.7",
+    "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "2.10.0",
     "zone": "0.3.4",
     "zone.js": "0.6.12"
   },
   "devDependencies": {
-    "file-loader": "0.8.5",
+    "file-loader": "^0.8.5",
     "ngtemplate-loader": "1.3.1",
-    "static-file-loader": "0.4.0",
-    "webpack": "1.13.0",
+    "webpack": "^1.13.0",
     "webpack-hot-middleware": "2.s0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "build": "webpack",
-    "start": "nodemon -L ./server.js --watch ./build/",
+    "prestart": "npm run build",
+    "start": "forever -o start server.js",
     "dev": "webpack-dev-server --devtool eval --config webpack.config.js  --progress --colors --host 0.0.0.0 --port 3000 --display-error-details"
   },
   "author": "Dylan Harness <dharness@uwo.ca>",

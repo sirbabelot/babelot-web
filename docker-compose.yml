@@ -1,5 +1,10 @@
-bablot_web_node:
-  build: .
-  command: echo 'ready'
-  volumes:
-    - .:/home/app/bablot_web
+version: '2'
+services:
+  bablot_web_node:
+    build: ./
+    ports: 
+      - "8000:8000"
+    volumes:
+      - .:/home/app/bablot_web
+    command: npm start
+
