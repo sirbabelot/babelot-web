@@ -2,7 +2,7 @@ const APP_PATH = '/home/deploy/web'
 module.exports = function(shipit) {
   shipit.initConfig({
     staging: {
-      servers: 'deploy@162.243.218.96',
+      servers: 'deploy@107.170.2.166',
       key: 'deploy_key'
     }
   });
