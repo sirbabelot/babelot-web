@@ -60,7 +60,8 @@
     "build": "webpack",
     "prestart": "npm run build",
     "start": "forever -o start server.js",
-    "dev": "webpack-dev-server --devtool eval --config webpack.config.js  --progress --colors --host 0.0.0.0 --port 3000 --display-error-details"
+    "predev": "npm run build",
+    "dev": "node webpack.dev.server.js"
   },
   "author": "Dylan Harness <dharness@uwo.ca>",
   "license": "ISC",

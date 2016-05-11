@@ -1,10 +1,9 @@
 version: '2'
 services:
   bablot_web_node:
-    build: ./
     ports: 
       - "8000:8000"
     volumes:
-      - .:/home/app/bablot_web
-    command: npm start
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
 
