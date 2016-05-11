@@ -6,7 +6,7 @@ services:
   - docker
 addons:
   ssh_known_hosts:
-  - 1107.170.2.166
+    - 107.170.2.166
 after_success:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t bablot/web ./
