@@ -4,9 +4,6 @@ node_js:
 sudo: required
 services:
   - docker
-# addons:
-#   ssh_known_hosts:
-#   - 162.243.218.96
 after_success:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t bablot/web ./
@@ -16,6 +13,3 @@ branches:
   only:
   - master
   - dockerize2
-# before_install:
-#   - openssl aes-256-cbc -K $encrypted_39780c9b113a_key -iv $encrypted_39780c9b113a_iv
-#     -in deploy_key.enc -out deploy_key -d
