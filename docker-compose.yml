@@ -3,7 +3,4 @@ services:
   bablot_web_node:
     ports: 
       - "8000:8000"
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
 
