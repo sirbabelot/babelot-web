@@ -1,5 +1,4 @@
-bablot_web_node:
-  build: .
-  command: echo 'ready'
-  volumes:
-    - .:/home/app/bablot_web
+version: '2'
+services:
+  bablot_web_node:
+

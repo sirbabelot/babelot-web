@@ -1,14 +1,13 @@
 # Dockerfile
 FROM node:5.3.0
 
-RUN useradd --user-group --create-home --shell /bin/false app &&\
-  npm -v
+COPY package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app
 
-ENV HOME=/home/app
+WORKDIR /usr/src/app
 
-COPY package.json npm-shrinkwrap.json $HOME/bablot_web/
-RUN chown -R app:app $HOME/*
+# Bundle app source
+COPY ./ /usr/src/app
 
-USER app
-WORKDIR $HOME/bablot_web
-RUN npm install
+EXPOSE 8000

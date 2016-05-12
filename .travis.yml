@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - '5'
+sudo: required
+services:
+  - docker
+addons:
+  ssh_known_hosts:
+    - 107.170.2.166
+after_success:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker build -t bablot/web ./
+  - docker push bablot/web
+  - chmod 600 deploy_key
+  - ./node_modules/.bin/shipit staging deploy
+branches:
+  only:
+  - master
+  - dockerize2
+before_install:
+- openssl aes-256-cbc -K $encrypted_246d3fb1eb94_key -iv $encrypted_246d3fb1eb94_iv
+  -in deploy_key.enc -out deploy_key -d
