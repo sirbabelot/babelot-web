@@ -1,0 +1,7 @@
+version: '2'
+services:
+  bablot_web_node:
+    image: bablot/web
+    command: npm start
+    ports: 
+      - "80:8000"
