@@ -13,14 +13,22 @@ declare var require: any;
 export class Messenger {
   public socket: any;
   private roomId: string;
-  private businessId: string = 'ExclusiveRentals.com';
+  private businessId: string = 'DEMO_ID';
   public isOnline: boolean = false;
   public currentConversation: any;
   public conversationsMap: Map<string, Conversation> = new Map<string, Conversation>();
   public receivedMessages: string[];
 
   constructor() {
-    this.socket = io('https://docker.default/ExclusiveRentals.com', { path: '/babelot/socket.io' });
+    this.socket = io('https://docker.local/DEMO_ID', { path: '/babelot/socket.io' });
+    console.log(this.socket);
+
+    this.socket.emit('direct message', {
+      roomId: 'plpl',
+      message: 'options.message'
+    });
+
+
     this.receivedMessages = [];
     this.socket.on('message from server', (msg) => console.log(msg) );
     this.socket.on('client.nowOnline', (msg) => {
