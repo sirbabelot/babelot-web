@@ -6,25 +6,17 @@ const BABLOT_BUSINESS_ID = 'DEMO_ID';
 class Messenger {
 
   constructor() {
+    this.businessId = BABLOT_BUSINESS_ID;
+    this.socket = io(`https://localhost:9000/${BABLOT_BUSINESS_ID}`);
 
-  var socket = io('https://localhost:9000');
-  socket.on('news', function (data) {
-    document.write(JSON.stringify(data))
-    socket.emit('my other event', { my: 'data' });
-  });
-
-    // this.businessId = BABLOT_BUSINESS_ID;
-    // this.socket = io(`http://localhost:9000`);
-    // console.log(this.socket.connected);
-
-    // this.EVENTS = {
-    //   directMessage: 'direct message',
-    //   client: {
-    //     nowOnline: 'client.nowOnline',
-    //     startConversation: 'client.startConversation'
-    //   },
-    //   business: { statusChanged: 'business.statusChanged' }
-    // }
+    this.EVENTS = {
+      directMessage: 'direct message',
+      client: {
+        nowOnline: 'client.nowOnline',
+        startConversation: 'client.startConversation'
+      },
+      business: { statusChanged: 'business.statusChanged' }
+    }
   }
 
   init() {
@@ -70,6 +62,7 @@ class Messenger {
   startConversation() {
     let nickname = localStorage.getItem('babelot-nickname');
     if (nickname) { this.nickname = nickname; }
+    console.log(this.businessId);
     this.socket.emit(this.EVENTS.client.startConversation, {
       businessId: this.businessId,
       clientInfo: {

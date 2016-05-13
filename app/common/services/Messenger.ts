@@ -18,16 +18,10 @@ export class Messenger {
   public currentConversation: any;
   public conversationsMap: Map<string, Conversation> = new Map<string, Conversation>();
   public receivedMessages: string[];
+  private BABLOT_BUSINESS_ID = 'DEMO_ID';
 
   constructor() {
-    this.socket = io('https://docker.local/DEMO_ID', { path: '/babelot/socket.io' });
-    console.log(this.socket);
-
-    this.socket.emit('direct message', {
-      roomId: 'plpl',
-      message: 'options.message'
-    });
-
+    this.socket = io(`https://localhost:9000/${this.BABLOT_BUSINESS_ID}`);
 
     this.receivedMessages = [];
     this.socket.on('message from server', (msg) => console.log(msg) );
