@@ -3,9 +3,6 @@ var webpack = require("webpack");
 var config = require('./webpack.config.js');
 
 var compiler = webpack(config);
-console.log(config);
-console.log(compiler);
-
 var server = new WebpackDevServer(compiler, {
   watchOptions: {
     aggregateTimeout: 300,
