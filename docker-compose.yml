@@ -1,4 +1,12 @@
 version: '2'
 services:
+  nginx:
+    build: ./nginx
+    links:
+    - bablot_web_node:node
+    - landing:landing
+    ports:
+    - "80:80"
+    - "443:443"
   bablot_web_node:
-
+  landing:

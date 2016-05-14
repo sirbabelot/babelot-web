@@ -11,8 +11,8 @@ declare var require: any;
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  { path: '/settings', component: SettingsComponent, name: 'Settings', useAsDefault: true },
-  { path: '/messaging', component: MessagingComponent, name: 'Messaging' }
+  { path: '/settings', component: SettingsComponent, name: 'Settings' },
+  { path: '/messaging', component: MessagingComponent, name: 'Messaging', useAsDefault: true }
 ])
 export class DashboardComponent {
   public user: any;

@@ -4,7 +4,15 @@ services:
     build: ./
     command: npm run dev
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-     ports: 
-      - "8000:8000"
+    - .:/usr/src/app
+    - /usr/src/app/node_modules
+    ports:
+    - "8000:8000"
+  landing:
+    build: ./landing
+    command: npm run dev
+    volumes:
+    - /usr/src/app/node_modules
+    - ./landing:/usr/src/app
+    ports:
+    - "8001:8001"

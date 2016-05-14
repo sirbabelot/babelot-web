@@ -1,0 +1,14 @@
+.bablot-nav > .logo {
+  display: inline;
+  float: left;
+}
+
+.bablot-nav > ul {
+  display: inline;
+  list-style: none;
+}
+
+.bablot-nav > ul > li {
+  display: inline;
+  float: right;
+}
