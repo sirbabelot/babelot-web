@@ -2,19 +2,24 @@
 <html>
 <head>
   <title>Landing</title>
+  <link rel="stylesheet" type="text/css" href="styles/header.css">
+  <link rel="stylesheet" type="text/css" href="styles/chat.css">
   <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
+
   <header>
     <nav class="bablot-nav">
-      <div id="#logo">Bablot</div>
+      <div class="logo">Bablot</div>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#" onclick="go('chat')">Chat</a></li>
       </ul>
     </nav>
   </header>
+
+  <div class="bablot-chat"></div>
 
     <div id="babelot-chat">
       <div id="babelot-header">

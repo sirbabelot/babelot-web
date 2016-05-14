@@ -1,18 +1,3 @@
-.bablot-nav > #logo {
-  display: inline;
-}
-
-.bablot-nav > ul {
-  display: inline;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.bablot-nav > ul > li {
-  display: inline;
-}
-
 #babelot-chat {
   position: fixed;
   bottom: 0px;
