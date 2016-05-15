@@ -10,7 +10,11 @@ addons:
 after_success:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t bablot/web ./
+  - docker build -t bablot/web-nginx ./nginx/
+  - docker build -t bablot/landing ./landing/
   - docker push bablot/web
+  - docker push bablot/web-nginx
+  - docker push bablot/landing
   - chmod 600 deploy_key
   - ./node_modules/.bin/shipit staging deploy
 branches:
