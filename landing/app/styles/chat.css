@@ -1,6 +1,22 @@
 .bablot-chat {
-  margin: auto;
+  display: inline-block;
   width: 497px;
   height: 416px;
   background: red;
+}
+
+.bablot-about {
+  display: inline-block;
+  width: 497px;
+  height: 416px;
+  background: blue;
+  display: none;
+}
+
+.bablot-contact {
+  display: inline-block;
+  width: 497px;
+  height: 416px;
+  background: green;
+  display: none;
 }

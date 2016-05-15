@@ -2,8 +2,11 @@
 <html>
 <head>
   <title>Landing</title>
+  <link rel="stylesheet" type="text/css" href="styles/base.css">
   <link rel="stylesheet" type="text/css" href="styles/header.css">
   <link rel="stylesheet" type="text/css" href="styles/chat.css">
+  <link rel="stylesheet" type="text/css" href="styles/layout.css">
+  <link rel="stylesheet" type="text/css" href="styles/animations.css">
   <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
@@ -12,14 +15,22 @@
     <nav class="bablot-nav">
       <div class="logo">Bablot</div>
       <ul>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="#" onclick="go('contact')">Contact</a></li>
+        <li><a href="#" onclick="go('about')">About</a></li>
         <li><a href="#" onclick="go('chat')">Chat</a></li>
       </ul>
     </nav>
   </header>
 
-  <div class="bablot-chat"></div>
+  <div class="bablot-center-row">
+    <img src="assets/crown.png">
+    <h5>A chat bot that will find your next home</h5>
+    <div>
+      <div class="bablot-chat"></div>
+      <div class="bablot-about"></div>
+      <div class="bablot-contact"></div>
+    </div>
+  </div>
 
     <div id="babelot-chat">
       <div id="babelot-header">
