@@ -1,22 +1,46 @@
 .bablot-chat {
-  display: inline-block;
-  width: 497px;
-  height: 416px;
+  width: 400px;
+  height: 400px;
   background: red;
+  opacity: 0.5;
+  position: absolute;
+  left: calc(500px - 200px);
 }
 
 .bablot-about {
-  display: inline-block;
-  width: 497px;
-  height: 416px;
+  width: 400px;
+  height: 400px;
   background: blue;
-  display: none;
+  position: absolute;
+  left: calc(500px + 100px);
+  transition: opacity 2s;
+  opacity: 0;
 }
 
 .bablot-contact {
-  display: inline-block;
-  width: 497px;
-  height: 416px;
+  width: 400px;
+  height: 400px;
   background: green;
-  display: none;
+  position: absolute;
+  left: calc(500px + 100px);
+  transition: opacity 2s;
+  opacity: 0;
+}
+
+@keyframes slide-left {
+    0% {
+      left: calc(500px - 200px);
+    }
+    100% {
+      left: 0px;
+    }
+}
+
+@keyframes slide-right {
+    0% {
+      left: 0px;
+    }
+    100% {
+      left: calc(500px - 200px);
+    }
 }

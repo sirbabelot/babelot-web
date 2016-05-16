@@ -2,3 +2,11 @@
   text-align: center;
   width: 100%;
 }
+
+.wrapper {
+  margin: auto;
+  background: plum;
+  width: 1000px;
+  height: 400px;
+  position: relative;
+}
