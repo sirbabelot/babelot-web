@@ -6,3 +6,30 @@
   font-size: 40px;
   margin-bottom: 65px;
 }
+
+.bablot-contact .bablot-contact--phone {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.bablot-contact .bablot-contact--phone img {
+  width: 27px;
+  height: 41px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.bablot-contact .bablot-contact--email {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.bablot-contact .bablot-contact--email img {
+  width: 39px;
+  height: 35px;
+  margin: auto;
+  margin-bottom: 10px;
+}
