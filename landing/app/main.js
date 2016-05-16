@@ -4,10 +4,29 @@ window.onload = function () {
   var messages = document.querySelector('.bablot-chat--messages');
   for(let i = 0; i <=50; i++) {
     var e = document.createElement('div');
-    e.innerHTML = `<img src="assets/king3.png"/>
-      <div class="bablot-chat--message--text">I am a blab</div>`;
-    e.className += 'bablot-chat--message--received';
-    messages.appendChild(e);
+    if (i%2 == 0) {
+      e.innerHTML = `
+        <div class="bablot-chat--message--received">
+          <div class="bablot-chat--message--content">
+            <img src="assets/king3.png"/>
+            <div class="bablot-chat--message--text">
+              I am the blab baby!!
+            </div>
+          </div>
+        </div>
+      `;
+    } else {
+      e.innerHTML = `
+        <div class="bablot-chat--message--sent">
+          <div class="bablot-chat--message--content">
+            <div class="bablot-chat--message--text">
+              I am a studly stud I a
+            </div>
+          </div>
+        </div>
+      `
+    }
+    messages.appendChild(e.firstElementChild);
   }
 
 };
