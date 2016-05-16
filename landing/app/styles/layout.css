@@ -49,4 +49,8 @@
     left: 0px;
     animation: none!important;
   }
+  .bablot-chat {
+    border: none;
+    border-radius: 0px;
+  }
 }

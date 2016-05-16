@@ -2,14 +2,14 @@
   height: 70px;
 }
 
-.bablot-nav > .logo {
+.bablot-nav .logo {
   display: inline;
   float: left;
   font-size: 40px;
   color: #494B61;
 }
 
-.bablot-nav > .logo > img {
+.bablot-nav .logo img {
   width: 38px;
   height: 48px;
 }
