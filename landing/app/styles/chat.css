@@ -1,38 +1,65 @@
 .bablot-chat {
-  width: 400px;
-  height: 400px;
-  background: red;
-  opacity: 0.5;
-  position: absolute;
-  left: calc(500px - 200px);
+  position: relative;
+  background: white;
+  width: 100%;
+  height: 100%;
+  border: solid 1px #A2C3EE;
+  border-radius: 15px;
+  box-shadow: 1px 1px 7px rgba(131, 131, 131, 0.5);
 }
 
-.bablot-about {
-  width: 400px;
-  height: 400px;
-  background: blue;
-  position: absolute;
-  left: calc(500px + 100px);
-  transition: opacity 1s;
-  opacity: 0;
+.bablot-chat .bablot-chat--header {
+  height: 30px;
 }
 
-.bablot-contact {
-  width: 400px;
-  height: 400px;
+.bablot-chat--status::before {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  content: "";
+  position: absolute;
   background: green;
+  left: 15px;
+}
+
+.bablot-chat--status {
+  text-align: left;
+  padding-left: 40px;
+  padding-top: 8px;
+}
+
+.bablot-chat .bablot-chat--messages {
+  background: red;
+  overflow-y: scroll;
+  height: calc(100% - 60px);
+}
+.bablot-chat .bablot-chat--message--sent {
+  background: blue;
+}
+.bablot-chat .bablot-chat--message--received {
+  background: yellow;
+  height: 75px;
+}
+.bablot-chat .bablot-chat--message--received img {
+  display: inline-block;
+  float: left;
+}
+.bablot-chat .bablot-chat--message--received .bablot-chat--message--text {
+  display: inline-block;
+}
+
+.bablot-chat .bablot-chat--input {
   position: absolute;
-  left: calc(500px + 100px);
-  transition: opacity 1s;
-  opacity: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
 }
 
-@keyframes slide-left {
-    0% { left: calc(500px - 200px); }
-    100% { left: 0px; }
-}
-
-@keyframes slide-right {
-    0% { left: 0px; }
-    100% { left: calc(500px - 200px); }
+.bablot-chat .bablot-chat--input input {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  padding-left: 10px;
+  border: 0px;
+  background: none;
 }

@@ -79,5 +79,8 @@
         }
       }
     }
+  },
+  "dependencies": {
+    "node-sass": "3.7.0"
   }
 }
