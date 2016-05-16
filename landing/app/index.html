@@ -5,28 +5,37 @@
   <link rel="stylesheet" type="text/css" href="styles/animations.css">
   <link rel="stylesheet" type="text/css" href="styles/base.css">
   <link rel="stylesheet" type="text/css" href="styles/header.css">
+  <link rel="stylesheet" type="text/css" href="styles/intro.css">
   <link rel="stylesheet" type="text/css" href="styles/chat.css">
+  <link rel="stylesheet" type="text/css" href="styles/about.css">
+  <link rel="stylesheet" type="text/css" href="styles/contact.css">
   <link rel="stylesheet" type="text/css" href="styles/layout.css">
+  <link rel="stylesheet" type="text/css" href="styles/footer.css">
   <link rel="stylesheet" type="text/css" href="styles/style.css">
-  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
   <header>
     <nav class="bablot-nav">
-      <div class="logo">Bablot</div>
-      <ul>
-        <li><a href="#" onclick="go('contact')">Contact</a></li>
-        <li><a href="#" onclick="go('about')">About</a></li>
-        <li><a href="#" onclick="go('chat')">Chat</a></li>
-      </ul>
+      <div class="logo">
+        <img src="assets/king3@2x.png">
+        Bablot
+      </div>
+      <div class="bablot-nav--menu">
+        <ul>
+          <li><a href="#" onclick="go('contact')">Contact</a></li>
+          <li><a href="#" onclick="go('about')">About</a></li>
+          <li><a href="#" onclick="go('chat')">Chat</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
 
   <div class="bablot-intro">
     <img src="assets/crown.png">
-    <h5>A chat bot that will find your next home</h5>
+    <div class="bablot-intro--mesage">A chat bot that will find your next home</div>
   </div>
   <div class="bablot-wrapper">
     <div class="bablot-chat-panel">
@@ -35,6 +44,7 @@
           <div class="bablot-chat--status">online</div>
         </div>
         <div class="bablot-chat--messages">
+          <!-- Messages injected here, do not edit-->
         </div>
         <div class="bablot-chat--input">
           <input type="text" placeholder="Type your message ...">
@@ -44,9 +54,30 @@
         </div>
       </div>
     </div>
-    <div class="bablot-about-panel">Naila</div>
-    <div class="bablot-contact-panel"><br/> Nur</div>
+    <div class="bablot-about-panel">
+      <div class="bablot-about">
+        <div class="bablot-about--header">Rent It Easy</div>
+        <div class="bablot-about--message">
+          <p>Bablot is a chat bot that helps you find a place to live.</p>
+          <p>It uses artificial intelligence to get you personalized results
+          quickly and easily.</p>
+          <p>If you have any questions about finding a place, just ask Sir Bablot!</p>
+        </div>
+      </div>
+    </div>
+    <div class="bablot-contact-panel">
+    <div class="bablot-contact">
+      <div class="bablot-contact--header">We don't bite</div>
+      <div class="bablot-contact--phone">
+        226 378 8121
+      </div>
+      <div class="bablot-contact--email">
+        yourfriends@bablot.co
+      </div>
+    </div>
+    </div>
   </div>
+  <footer class="bablot-footer"></footer>
 
 <!--   <div id="babelot-chat">
     <div id="babelot-header">

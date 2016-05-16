@@ -1,14 +1,43 @@
+.bablot-nav {
+  height: 70px;
+}
+
 .bablot-nav > .logo {
   display: inline;
   float: left;
+  font-size: 40px;
+  color: #494B61;
 }
 
-.bablot-nav > ul {
-  display: inline;
+.bablot-nav > .logo > img {
+  width: 38px;
+  height: 48px;
+}
+
+.bablot-nav .bablot-nav--menu {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bablot-nav ul {
+  display: inline-block;
   list-style: none;
+  float: right;
+  margin: 0px;
+  margin-top: auto!important;
+  padding: 0px;
 }
 
-.bablot-nav > ul > li {
+.bablot-nav ul li {
   display: inline;
   float: right;
+  font-size: 20px;
+  margin-right: 50px;
+  margin-bottom: 10px;
+}
+
+.bablot-nav ul li a {
+  text-decoration: none;
+  color: #494B61;
 }

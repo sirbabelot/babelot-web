@@ -15,7 +15,6 @@
 .bablot-about-panel {
   width: 400px;
   height: 400px;
-  background: blue;
   position: absolute;
   left: calc(500px + 100px);
   transition: opacity 1s;
@@ -25,7 +24,6 @@
 .bablot-contact-panel {
   width: 400px;
   height: 400px;
-  background: green;
   position: absolute;
   left: calc(500px + 100px);
   transition: opacity 1s;

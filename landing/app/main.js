@@ -2,7 +2,15 @@
 
 window.onload = function () {
   var messages = document.querySelector('.bablot-chat--messages');
-  for(let i = 0; i <=50; i++) {
+
+  var observer = new MutationObserver((mutations)=> {
+    messages.oldScrollHeight = messages.scrollHeight;
+    messages.scrollTop = messages.scrollHeight;
+  });
+
+  var config = { childList: true, subtree: true };
+  observer.observe(messages, config);
+  for(let i = 0; i <=10; i++) {
     var e = document.createElement('div');
     if (i%2 == 0) {
       e.innerHTML = `
@@ -27,13 +35,15 @@ window.onload = function () {
       `
     }
     messages.appendChild(e.firstElementChild);
-  }
-
+  } //for
 };
+
+
 function go(state) {
   var chatPanel = document.querySelector('.bablot-chat-panel');
   var aboutPanel = document.querySelector('.bablot-about-panel');
   var contactPanel = document.querySelector('.bablot-contact-panel');
+  var intro = document.querySelector('.bablot-intro--mesage');
   var wrap = document.querySelector('.bablot-wrapper');
 
   if (state == 'about') {
@@ -41,12 +51,14 @@ function go(state) {
     aboutPanel.style.display = 'block';
     aboutPanel.style.opacity = '1';
     contactPanel.style.opacity = '0';
+    intro.style.opacity = '0';
 
   } else if (state == 'contact') {
     chatPanel.style.animation = "slide-left 1s forwards"
     contactPanel.style.display = 'block';
     contactPanel.style.opacity = '1';
     aboutPanel.style.opacity = '0';
+    intro.style.opacity = '0';
 
   } else if (state == 'chat') {
     // Needed to prevent the animation from firing
@@ -56,5 +68,6 @@ function go(state) {
     }
     aboutPanel.style.opacity = '0';
     contactPanel.style.opacity = '0';
+    intro.style.opacity = '1';
   }
 }
