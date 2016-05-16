@@ -3,10 +3,29 @@
   width: 100%;
 }
 
-.wrapper {
+.bablot-wrapper {
   margin: auto;
   background: plum;
   width: 1000px;
   height: 400px;
   position: relative;
+}
+
+@media (max-width: 700px) {
+  .bablot-nav { display: none; }
+  .bablot-intro { display: none; }
+  .bablot-about { display: none!important; }
+  .bablot-contact { display: none!important; }
+  .bablot-wrapper {
+    background: orange!important;
+    height: 100vh!important;
+    width: 100vw!important;
+  }
+  .bablot-chat {
+    opacity: 1;
+    background: black;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+  }
 }

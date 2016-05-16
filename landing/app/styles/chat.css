@@ -13,7 +13,7 @@
   background: blue;
   position: absolute;
   left: calc(500px + 100px);
-  transition: opacity 2s;
+  transition: opacity 1s;
   opacity: 0;
 }
 
@@ -23,24 +23,16 @@
   background: green;
   position: absolute;
   left: calc(500px + 100px);
-  transition: opacity 2s;
+  transition: opacity 1s;
   opacity: 0;
 }
 
 @keyframes slide-left {
-    0% {
-      left: calc(500px - 200px);
-    }
-    100% {
-      left: 0px;
-    }
+    0% { left: calc(500px - 200px); }
+    100% { left: 0px; }
 }
 
 @keyframes slide-right {
-    0% {
-      left: 0px;
-    }
-    100% {
-      left: calc(500px - 200px);
-    }
+    0% { left: 0px; }
+    100% { left: calc(500px - 200px); }
 }
