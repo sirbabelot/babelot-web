@@ -123,8 +123,17 @@
   font-weight: bold;
 }
 
-.bablot-chat .bablot-chat--input input {
+.bablot-chat--input-form {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
   width: 85%;
+  float: left;
+  display: block;
+}
+
+.bablot-chat .bablot-chat--input input {
+  width: 100%;
   height: 100%;
   padding: 0px;
   float: left;
@@ -134,4 +143,5 @@
   background: none;
   font-size: 14px;
   font-weight: bold;
+  color: #494B61;
 }

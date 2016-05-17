@@ -41,13 +41,18 @@
     <div class="bablot-chat-panel">
       <div class="bablot-chat">
         <div class="bablot-chat--header">
-          <div class="bablot-chat--status">online</div>
+          <div class="bablot-chat--status">
+            online
+            <div id="nickname"></div>
+          </div>
         </div>
         <div class="bablot-chat--messages">
           <!-- Messages injected here, do not edit-->
         </div>
         <div class="bablot-chat--input">
-          <input type="text" placeholder="Type your message ...">
+          <form class="bablot-chat--input-form">
+            <input id="bablot-chat-input-field" autocomplete="off" type="text" placeholder="Type your message ...">
+          </form>
           <div class="bablot-chat--send">
             <button><img src="assets/plane.png"></button>
           </div>
@@ -97,10 +102,10 @@
       </div>
     </div>
   </div> -->
-<!--   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/fingerprintjs2/1.1.4/fingerprint2.min.js"></script>
   <script type="text/javascript" src="Messenger.js"></script>
-  <script type="text/javascript" src="eventHandler.js"></script> -->
+  <script type="text/javascript" src="eventHandler.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </body>
 </html>

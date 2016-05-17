@@ -1,4 +1,4 @@
-// messenger.init();
+messenger.init();
 
 window.onload = function () {
   var messages = document.querySelector('.bablot-chat--messages');
@@ -10,32 +10,6 @@ window.onload = function () {
 
   var config = { childList: true, subtree: true };
   observer.observe(messages, config);
-  for(let i = 0; i <=10; i++) {
-    var e = document.createElement('div');
-    if (i%2 == 0) {
-      e.innerHTML = `
-        <div class="bablot-chat--message--received">
-          <div class="bablot-chat--message--content">
-            <img src="assets/king3.png"/>
-            <div class="bablot-chat--message--text">
-              I am the blab baby!!
-            </div>
-          </div>
-        </div>
-      `;
-    } else {
-      e.innerHTML = `
-        <div class="bablot-chat--message--sent">
-          <div class="bablot-chat--message--content">
-            <div class="bablot-chat--message--text">
-              I am a studly stud I a
-            </div>
-          </div>
-        </div>
-      `
-    }
-    messages.appendChild(e.firstElementChild);
-  } //for
 };
 
 
@@ -49,19 +23,29 @@ function go(state) {
 
   if (state == 'about') {
     chatPanel.style.animation = "slide-left 1s forwards"
+
     aboutPanel.style.display = 'block';
+    window.getComputedStyle(aboutPanel).display;
     aboutPanel.style.opacity = '1';
+
+    contactPanel.style.display = 'none';
     contactPanel.style.opacity = '0';
+
     intro.style.opacity = '0';
-    crown.style.opacity = '0';
+    // crown.style.opacity = '0';
 
   } else if (state == 'contact') {
     chatPanel.style.animation = "slide-left 1s forwards"
+
     contactPanel.style.display = 'block';
+      window.getComputedStyle(contactPanel).display;
     contactPanel.style.opacity = '1';
+
+    aboutPanel.style.display = 'none';
     aboutPanel.style.opacity = '0';
+
     intro.style.opacity = '0';
-    crown.style.opacity = '0';
+    // crown.style.opacity = '0';
 
   } else if (state == 'chat') {
     // Needed to prevent the animation from firing

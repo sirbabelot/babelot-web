@@ -1,39 +1,51 @@
 var messagePanel = document.getElementById('babelot-messages');
-var input = document.querySelector('#babelot-input');
-var messageListElement = document.getElementById('babelot-messages-list');
+var input = document.getElementById('bablot-chat-input-field');
+var messageListElement = document.querySelector('.bablot-chat--messages');
 
-document.getElementById('babelot-input-form').addEventListener('submit', function(e) {
+document.querySelector('.bablot-chat--input-form').addEventListener('submit', function(e) {
     e.preventDefault();
     e.stopPropagation();
-    console.log(input);
     var msgText = input.value;
-    var chatBubbleTemplate = "<div class='babelot-chat-bubble sentByMe'><div class='content'>" + msgText + "</div></div>"
+    var chatBubbleTemplate = `
+      <div class="bablot-chat--message--sent">
+        <div class="bablot-chat--message--content">
+          <div class="bablot-chat--message--text">
+            ${msgText}
+          </div>
+        </div>
+      </div>
+    `;
     input.value = "";
     var div = document.createElement('div');
     div.innerHTML = chatBubbleTemplate;
-    var elements = div.childNodes;
-    messageListElement.appendChild(elements[0]);
+    messageListElement.appendChild(div.firstElementChild);
 
     messenger.sendMessage(msgText);
-});
-
-document.getElementById('minButton').addEventListener('click', function() {
-    messagePanel.classList.toggle('babelot-messages-hidden');
 });
 
 document.addEventListener(messenger.EVENTS.client.nowOnline, function (e) {
   document.querySelector('#nickname').innerHTML = e.detail.nickname;
 }, false);
 
-document.addEventListener(messenger.EVENTS.business.statusChanged, function (e) {
-  if (e.detail.status === 'online') {
-    document.querySelector('#status').style.background = "green";
-  } else {
-    document.querySelector('#status').style.background = "red";
-  }
-}, false);
 
 document.addEventListener(messenger.EVENTS.directMessage, function (e) {
-  document.querySelector('#babelot-messages-list')
-      .innerHTML +=`<div style="background:#B8D879">them: ${e.detail.message}</div>`
+    e.preventDefault();
+    e.stopPropagation();
+    var msgText = e.detail.message;
+    var chatBubbleTemplate = `
+        <div class="bablot-chat--message--received">
+          <div class="bablot-chat--message--content">
+            <img src="assets/king3.png"/>
+            <div class="bablot-chat--message--text">
+              ${msgText}
+            </div>
+          </div>
+        </div>
+    `;
+    input.value = "";
+    var div = document.createElement('div');
+    div.innerHTML = chatBubbleTemplate;
+    messageListElement.appendChild(div.firstElementChild);
+
+    messenger.sendMessage(msgText);
 }, false);
