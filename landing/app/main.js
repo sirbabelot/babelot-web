@@ -10,6 +10,33 @@ window.onload = function () {
 
   var config = { childList: true, subtree: true };
   observer.observe(messages, config);
+  
+  for(let i = 0; i <=10; i++) {
+    var e = document.createElement('div');
+    if (i%2 == 0) {
+      e.innerHTML = `
+        <div class="bablot-chat--message--received">
+          <div class="bablot-chat--message--content">
+            <img src="assets/little-king3.svg"/>
+            <div class="bablot-chat--message--text">
+              I am the blab baby!!
+            </div>
+          </div>
+        </div>
+      `;
+    } else {
+      e.innerHTML = `
+        <div class="bablot-chat--message--sent">
+          <div class="bablot-chat--message--content">
+            <div class="bablot-chat--message--text">
+              I am a studly stud I a
+            </div>
+          </div>
+        </div>
+      `
+    }
+    messages.appendChild(e.firstElementChild);
+  } //for
 };
 
 
