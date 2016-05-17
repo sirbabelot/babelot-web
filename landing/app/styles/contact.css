@@ -13,6 +13,15 @@
   font-size: 20px;
 }
 
+.bablot-contact .bablot-contact--phone a {
+  color: #494B61;
+  text-decoration: none;
+}
+.bablot-contact .bablot-contact--phone a:hover {
+  color: #F2D70F!important;
+  text-decoration: underline;
+}
+
 .bablot-contact .bablot-contact--phone img {
   width: 27px;
   height: 41px;
@@ -25,6 +34,16 @@
   flex-direction: column;
   margin-top: 40px;
   font-size: 20px;
+}
+
+.bablot-contact .bablot-contact--email a {
+  color: #494B61;
+  text-decoration: none;
+}
+
+.bablot-contact .bablot-contact--email a:hover {
+  color: #F9648B!important;
+  text-decoration: underline;
 }
 
 .bablot-contact .bablot-contact--email img {

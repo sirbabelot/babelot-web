@@ -32,7 +32,6 @@ function go(state) {
     contactPanel.style.opacity = '0';
 
     intro.style.opacity = '0';
-    // crown.style.opacity = '0';
 
   } else if (state == 'contact') {
     chatPanel.style.animation = "slide-left 1s forwards"
@@ -45,7 +44,6 @@ function go(state) {
     aboutPanel.style.opacity = '0';
 
     intro.style.opacity = '0';
-    // crown.style.opacity = '0';
 
   } else if (state == 'chat') {
     // Needed to prevent the animation from firing
