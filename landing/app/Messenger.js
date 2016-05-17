@@ -7,7 +7,7 @@ class Messenger {
 
   constructor() {
     this.businessId = BABLOT_BUSINESS_ID;
-    this.socket = io(`https://localhost:9000/${BABLOT_BUSINESS_ID}`);
+    this.socket = io(`https://192.168.99.100:9000/${BABLOT_BUSINESS_ID}`);
 
     this.EVENTS = {
       directMessage: 'direct message',
@@ -22,6 +22,7 @@ class Messenger {
   init() {
 
     this.socket.on(this.EVENTS.directMessage, (data)=> {
+      console.log('Landing page::', data);
       var event = new CustomEvent(this.EVENTS.directMessage, {
         detail: data
       });
@@ -73,6 +74,7 @@ class Messenger {
   }
 
   sendMessage(message) {
+    console.log('sening a message', message);
     this.socket.emit(this.EVENTS.directMessage, {
       "nickname": this.nickname,
       "fingerprint": this.fingerprint,

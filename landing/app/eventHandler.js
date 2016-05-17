@@ -46,6 +46,4 @@ document.addEventListener(messenger.EVENTS.directMessage, function (e) {
     var div = document.createElement('div');
     div.innerHTML = chatBubbleTemplate;
     messageListElement.appendChild(div.firstElementChild);
-
-    messenger.sendMessage(msgText);
 }, false);
