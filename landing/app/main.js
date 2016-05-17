@@ -16,7 +16,7 @@ window.onload = function () {
       e.innerHTML = `
         <div class="bablot-chat--message--received">
           <div class="bablot-chat--message--content">
-            <img src="assets/king3.png"/>
+            <img src="assets/little-king3.svg"/>
             <div class="bablot-chat--message--text">
               I am the blab baby!!
             </div>
