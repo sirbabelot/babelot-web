@@ -39,6 +39,8 @@
   border-radius: 34px;
   font-size: 12px;
   line-height: 2;
+  word-wrap: break-word;
+  max-width: 75%;
 }
 
 /** Messages */
