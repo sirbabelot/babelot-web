@@ -29,12 +29,9 @@ document.addEventListener(messenger.EVENTS.client.nowOnline, function (e) {
 
 document.addEventListener(messenger.EVENTS.business.statusChanged, function (e) {
   if(e.detail.status=='offline'){
-    console.log('holy');
     document.querySelector('.bablot-chat--status').classList.add('bablot-chat--status-offline');
   }else{
-    console.log('holy moly');
     document.querySelector('.bablot-chat--status').classList.remove('bablot-chat--status-offline');
-    // document.querySelector('.bablot-chat--status').classList.add('bablot-chat--status-offline');
   }
 }, false);
 

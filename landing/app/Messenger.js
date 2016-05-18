@@ -7,7 +7,7 @@ class Messenger {
 
   constructor() {
     this.businessId = BABLOT_BUSINESS_ID;
-    this.socket = io(`https://192.168.99.100:9000/${BABLOT_BUSINESS_ID}`);
+    this.socket = io(`https://dev.api.bablot.co:9000/${BABLOT_BUSINESS_ID}`);
     this.businessFingerprint = '';
 
     this.EVENTS = {
@@ -31,7 +31,6 @@ class Messenger {
     });
 
     this.socket.on(this.EVENTS.client.nowOnline, (msg) => {
-      console.log(msg);
       this.roomId = msg.roomId;
       this.nickname = msg.nickname;
       localStorage.setItem('babelot-nickname', this.nickname);
@@ -65,7 +64,6 @@ class Messenger {
   startConversation() {
     let nickname = localStorage.getItem('babelot-nickname');
     if (nickname) { this.nickname = nickname; }
-    console.log(this.businessId);
     this.socket.emit(this.EVENTS.client.startConversation, {
       businessId: this.businessId,
       clientInfo: {
@@ -76,7 +74,6 @@ class Messenger {
   }
 
   sendMessage(message) {
-    console.log('sening a message', message);
     this.socket.emit(this.EVENTS.directMessage, {
       nickname: this.nickname,
       fromFingerprint: this.fingerprint,

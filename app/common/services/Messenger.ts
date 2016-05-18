@@ -21,13 +21,12 @@ export class Messenger {
   private BABLOT_BUSINESS_ID = 'DEMO_ID';
 
   constructor() {
-    this.socket = io(`https://192.168.99.100:9000/${this.BABLOT_BUSINESS_ID}`);
+    this.socket = io(`https://dev.api.bablot.co:9000/${this.BABLOT_BUSINESS_ID}`);
 
     this.receivedMessages = [];
 
     this.socket.on('client.nowOnline', (msg) => {
       let conversation = new Conversation(msg.roomId, msg.nickname, msg.fingerprint);
-      console.log('conversation', conversation);
       conversation.online = false;
       if (msg.status == 'online') {
         conversation.online = true;
@@ -38,7 +37,6 @@ export class Messenger {
     });
 
     this.socket.on('client.statusChanged', (data) => {
-      console.log('client: ', data);
       this.conversationsMap.get(data.fingerprint).online = false;
     });
 
@@ -58,8 +56,6 @@ export class Messenger {
       author: 'me',
       body: options.message
     });
-    console.log(options.message);
-    console.log(this.currentConversation.messages);
     this.socket.emit('direct message', {
       roomId: this.currentConversation.roomId,
       message: options.message,
