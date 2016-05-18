@@ -2,8 +2,8 @@ const APP_PATH = '/home/deploy/web'
 module.exports = function(shipit) {
   shipit.initConfig({
     staging: {
-      servers: 'deploy@107.170.2.166',
-      key: 'deploy_key'
+      servers: 'deploy@107.170.2.166'
+      // key: 'deploy_key'
     }
   });
 
@@ -20,3 +20,6 @@ module.exports = function(shipit) {
         ));
   });
 };
+
+          // docker rmi -f $(docker images -f "dangling=true" -q) &&
+
