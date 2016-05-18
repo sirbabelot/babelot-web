@@ -7,6 +7,7 @@ import {Conversation} from './../models/Conversation'
 var io = require('socket.io-client')
 var swal = require('sweetalert');
 declare var require: any;
+declare var BABLOT_API_URL: any;
 
 
 @Injectable()
@@ -21,7 +22,7 @@ export class Messenger {
   private BABLOT_BUSINESS_ID = 'DEMO_ID';
 
   constructor() {
-    this.socket = io(`https://dev.api.bablot.co:9000/${this.BABLOT_BUSINESS_ID}`);
+    this.socket = io(`${BABLOT_API_URL}/${this.BABLOT_BUSINESS_ID}`);
 
     this.receivedMessages = [];
 

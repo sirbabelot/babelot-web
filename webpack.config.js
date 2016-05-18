@@ -4,6 +4,8 @@ var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+var BABLOT_API_URL = process.env.BABLOT_API_URL;
+console.log(BABLOT_API_URL);
 
 module.exports = {
   entry: {
@@ -46,6 +48,9 @@ module.exports = {
   ],
   module: {
     loaders: [{
+      test: /\.ts$/,
+      loader: `imports?BABLOT_API_URL=>'${BABLOT_API_URL}'`
+    },{
       test: /\.ts$/,
       loader: 'ts-loader'
     }, {
