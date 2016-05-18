@@ -48,7 +48,7 @@ export class Messenger {
   }
 
   private receiveMessage(data) {
-    let toConvo = this.conversationsMap.get(data.fingerprint);
+    let toConvo = this.conversationsMap.get(data.fromFingerprint);
     toConvo.messages.push({ body: data.message });
     this.receivedMessages.push(data.message);
   }
@@ -62,7 +62,9 @@ export class Messenger {
     console.log(this.currentConversation.messages);
     this.socket.emit('direct message', {
       roomId: this.currentConversation.roomId,
-      message: options.message
+      message: options.message,
+      fromFingerprint: 'bablot_portal_experiment',
+      toFingerprint: this.currentConversation.fingerprint
     });
   }
 

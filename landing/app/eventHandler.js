@@ -27,6 +27,17 @@ document.addEventListener(messenger.EVENTS.client.nowOnline, function (e) {
   document.querySelector('#nickname').innerHTML = e.detail.nickname;
 }, false);
 
+document.addEventListener(messenger.EVENTS.business.statusChanged, function (e) {
+  if(e.detail.status=='offline'){
+    console.log('holy');
+    document.querySelector('.bablot-chat--status').classList.add('bablot-chat--status-offline');
+  }else{
+    console.log('holy moly');
+    document.querySelector('.bablot-chat--status').classList.remove('bablot-chat--status-offline');
+    // document.querySelector('.bablot-chat--status').classList.add('bablot-chat--status-offline');
+  }
+}, false);
+
 
 document.addEventListener(messenger.EVENTS.directMessage, function (e) {
     e.preventDefault();
@@ -35,7 +46,7 @@ document.addEventListener(messenger.EVENTS.directMessage, function (e) {
     var chatBubbleTemplate = `
         <div class="bablot-chat--message--received">
           <div class="bablot-chat--message--content">
-            <img src="assets/king3.png"/>
+            <img src="assets/little-king3.svg"/>
             <div class="bablot-chat--message--text">
               ${msgText}
             </div>

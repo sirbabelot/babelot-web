@@ -8,6 +8,7 @@ class Messenger {
   constructor() {
     this.businessId = BABLOT_BUSINESS_ID;
     this.socket = io(`https://192.168.99.100:9000/${BABLOT_BUSINESS_ID}`);
+    this.businessFingerprint = '';
 
     this.EVENTS = {
       directMessage: 'direct message',
@@ -22,7 +23,7 @@ class Messenger {
   init() {
 
     this.socket.on(this.EVENTS.directMessage, (data)=> {
-      console.log('Landing page::', data);
+      this.businessFingerprint = data.fromFingerprint;
       var event = new CustomEvent(this.EVENTS.directMessage, {
         detail: data
       });
@@ -46,6 +47,7 @@ class Messenger {
       });
       document.dispatchEvent(event);
     });
+
     var fingerprint = localStorage.getItem('babelot-fingerprint');
     if (!fingerprint) {
       new Fingerprint2().get((result)=> {
@@ -76,9 +78,10 @@ class Messenger {
   sendMessage(message) {
     console.log('sening a message', message);
     this.socket.emit(this.EVENTS.directMessage, {
-      "nickname": this.nickname,
-      "fingerprint": this.fingerprint,
-      "roomId": this.roomId,
+      nickname: this.nickname,
+      fromFingerprint: this.fingerprint,
+      toFingerprint: this.businessFingerprint,
+      roomId: this.roomId,
       message
     });
   }
