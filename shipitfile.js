@@ -14,13 +14,10 @@ module.exports = function(shipit) {
         .then(()=> shipit.remote(`
           cd ${APP_PATH} &&
           docker-compose -f docker-compose.yml -f docker-compose.prod.yml stop &&
+          docker rmi -f $(docker images -f "dangling=true" -q) &&
           echo "y" | docker-compose -f docker-compose.yml -f docker-compose.prod.yml rm --all &&
           docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull &&
           docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`
         ));
   });
 };
-
-//This line is ued for removing dangles (krsuties) but it doenst work on server
-// docker rmi -f $(docker images -f "dangling=true" -q) &&
-
