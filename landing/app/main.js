@@ -1,3 +1,15 @@
+require('./styles/about.css');
+require('./styles/animations.css');
+require('./styles/base.css');
+require('./styles/chat.css');
+require('./styles/contact.css');
+require('./styles/footer.css');
+require('./styles/header.css');
+require('./styles/intro.css');
+require('./styles/layout.css');
+require('./eventHandler.js');
+
+var messenger = require('./Messenger.js');
 messenger.init();
 
 window.onload = function () {
@@ -13,13 +25,12 @@ window.onload = function () {
 };
 
 
-function go(state) {
+window.go = function(state) {
   var chatPanel = document.querySelector('.bablot-chat-panel');
   var aboutPanel = document.querySelector('.bablot-about-panel');
   var contactPanel = document.querySelector('.bablot-contact-panel');
   var intro = document.querySelector('.bablot-intro--mesage');
   var crown = document.querySelector('.bablot-intro img');
-  var wrap = document.querySelector('.bablot-wrapper');
 
   if (state == 'about') {
     chatPanel.style.animation = "slide-left 1s forwards"

@@ -1,4 +1,6 @@
-var messagePanel = document.getElementById('babelot-messages');
+var messenger = require('./Messenger.js');
+var littleKing = require('./assets/little-king3.svg')
+
 var input = document.getElementById('bablot-chat-input-field');
 var messageListElement = document.querySelector('.bablot-chat--messages');
 
@@ -43,7 +45,7 @@ document.addEventListener(messenger.EVENTS.directMessage, function (e) {
     var chatBubbleTemplate = `
         <div class="bablot-chat--message--received">
           <div class="bablot-chat--message--content">
-            <img src="assets/little-king3.svg"/>
+            <img src="${littleKing}"/>
             <div class="bablot-chat--message--text">
               ${msgText}
             </div>

@@ -89,4 +89,5 @@ class Messenger {
 
 }
 
-window.messenger = new Messenger();
+module.exports = new Messenger();
+
