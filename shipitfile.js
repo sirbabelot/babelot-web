@@ -3,7 +3,7 @@ module.exports = function(shipit) {
   shipit.initConfig({
     staging: {
       servers: 'deploy@107.170.2.166',
-      key: 'deploy_key'
+      key: 'deploy_key' 
     }
   });
 
@@ -21,5 +21,6 @@ module.exports = function(shipit) {
   });
 };
 
-          // docker rmi -f $(docker images -f "dangling=true" -q) &&
+//This line is ued for removing dangles (krsuties) but it doenst work on server
+// docker rmi -f $(docker images -f "dangling=true" -q) &&
 
