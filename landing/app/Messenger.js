@@ -7,7 +7,8 @@ class Messenger {
 
   constructor() {
     this.businessId = BABLOT_BUSINESS_ID;
-    this.socket = io(`https://localhost:9000/${BABLOT_BUSINESS_ID}`);
+    this.socket = io(`https://dev.api.bablot.co:9000/${BABLOT_BUSINESS_ID}`);
+    this.businessFingerprint = '';
 
     this.EVENTS = {
       directMessage: 'direct message',
@@ -22,6 +23,7 @@ class Messenger {
   init() {
 
     this.socket.on(this.EVENTS.directMessage, (data)=> {
+      this.businessFingerprint = data.fromFingerprint;
       var event = new CustomEvent(this.EVENTS.directMessage, {
         detail: data
       });
@@ -29,7 +31,6 @@ class Messenger {
     });
 
     this.socket.on(this.EVENTS.client.nowOnline, (msg) => {
-      console.log(msg);
       this.roomId = msg.roomId;
       this.nickname = msg.nickname;
       localStorage.setItem('babelot-nickname', this.nickname);
@@ -45,6 +46,7 @@ class Messenger {
       });
       document.dispatchEvent(event);
     });
+
     var fingerprint = localStorage.getItem('babelot-fingerprint');
     if (!fingerprint) {
       new Fingerprint2().get((result)=> {
@@ -62,7 +64,6 @@ class Messenger {
   startConversation() {
     let nickname = localStorage.getItem('babelot-nickname');
     if (nickname) { this.nickname = nickname; }
-    console.log(this.businessId);
     this.socket.emit(this.EVENTS.client.startConversation, {
       businessId: this.businessId,
       clientInfo: {
@@ -74,9 +75,10 @@ class Messenger {
 
   sendMessage(message) {
     this.socket.emit(this.EVENTS.directMessage, {
-      "nickname": this.nickname,
-      "fingerprint": this.fingerprint,
-      "roomId": this.roomId,
+      nickname: this.nickname,
+      fromFingerprint: this.fingerprint,
+      toFingerprint: this.businessFingerprint,
+      roomId: this.roomId,
       message
     });
   }
