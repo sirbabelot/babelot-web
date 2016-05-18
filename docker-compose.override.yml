@@ -9,6 +9,9 @@ services:
     - .:/usr/src/app
     - /usr/src/app/node_modules
   landing:
+    environment:
+      NODE_ENV: 'development'
+      BABLOT_API_URL: 'https://dev.api.bablot.co:9000'
     build: ./landing
     command: npm run dev
     volumes:

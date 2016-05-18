@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -L ./server.js --watch ./",
+    "dev": "node ./server.js",
     "prestart": "webpack",
     "start": "nodemon ./server.js"
   },
@@ -22,6 +22,7 @@
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.17.0",
     "image-webpack-loader": "^1.8.0",
+    "imports-loader": "^0.6.5",
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
     "nodemon": "^1.9.2",

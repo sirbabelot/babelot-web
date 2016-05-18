@@ -2,6 +2,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
 
+
 module.exports = {
     entry: "./app/main.js",
     output: {
@@ -12,6 +13,10 @@ module.exports = {
     },
     module: {
         loaders: [{
+            test: /\.js$/,
+            loader: `imports-loader?BABLOT_API_URL=>'${process.env.BABLOT_API_URL}'`,
+            exclude: /node_modules/
+        },{
             test: /\.js$/,
             exclude: /(node_modules)/,
             loader: 'babel-loader',

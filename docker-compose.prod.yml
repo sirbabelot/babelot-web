@@ -6,5 +6,8 @@ services:
     image: bablot/web
     command: npm start
   landing:
+    environment:
+      NODE_ENV: 'production'
+      BABLOT_API_URL: 'https://api.bablot.co:9000'
     image: bablot/landing
     command: npm start

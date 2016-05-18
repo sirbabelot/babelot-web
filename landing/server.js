@@ -16,7 +16,6 @@ if (process.env.NODE_ENV === 'development') {
   }); 
 
 } else if (process.env.NODE_ENV === 'production') {
-
   var server = express();
   server.use('/', express.static(`${__dirname}/build`));
 }

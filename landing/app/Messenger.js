@@ -7,7 +7,7 @@ class Messenger {
 
   constructor() {
     this.businessId = BABLOT_BUSINESS_ID;
-    this.socket = io(`https://dev.api.bablot.co:9000/${BABLOT_BUSINESS_ID}`);
+    this.socket = io(`${BABLOT_API_URL}/${BABLOT_BUSINESS_ID}`);
     this.businessFingerprint = '';
 
     this.EVENTS = {
