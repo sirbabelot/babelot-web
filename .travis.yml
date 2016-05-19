@@ -1,6 +1,3 @@
-language: node_js
-node_js:
-  - '5'
 sudo: required
 services:
   - docker
@@ -20,7 +17,6 @@ after_success:
 branches:
   only:
   - master
-  - dockerize2
 before_install:
 - openssl aes-256-cbc -K $encrypted_246d3fb1eb94_key -iv $encrypted_246d3fb1eb94_iv
   -in deploy_key.enc -out deploy_key -d
