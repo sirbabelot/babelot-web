@@ -1,0 +1,19 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "shipitfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirbabelot/babelot-web.git"
+  },
+  "author": "Dylan Harness <dharness@uwo.ca>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirbabelot/babelot-web/issues"
+  },
+  "homepage": "https://github.com/sirbabelot/babelot-web#readme"
+}
