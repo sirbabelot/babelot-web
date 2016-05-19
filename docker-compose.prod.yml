@@ -2,8 +2,8 @@ version: '2'
 services:
   nginx:
     image: bablot/web-nginx
-  bablot_web_node:
-    image: bablot/web
+  portal:
+    image: bablot/portal
     command: npm start
     environment:
       BABLOT_API_URL: 'https://api.bablot.co:9000'
