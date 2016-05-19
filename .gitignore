@@ -4,3 +4,4 @@ build
 npm-debug.log
 start
 deploy_key
+*.swp

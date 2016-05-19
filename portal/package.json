@@ -2,6 +2,14 @@
   "name": "bablotweb2",
   "version": "1.0.0",
   "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "webpack",
+    "prestart": "npm run build",
+    "start": "forever -o start server.js",
+    "predev": "npm run build",
+    "dev": "node webpack.dev.server.js"
+  },
   "dependencies": {
     "angular2": "2.0.0-beta.15",
     "angular2-jwt": "0.1.12",
@@ -56,14 +64,6 @@
     "shipit-cli": "^1.4.1",
     "webpack": "^1.13.0",
     "webpack-hot-middleware": "2.s0.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "webpack",
-    "prestart": "npm run build",
-    "start": "forever -o start server.js",
-    "predev": "npm run build",
-    "dev": "node webpack.dev.server.js"
   },
   "author": "Dylan Harness <dharness@uwo.ca>",
   "license": "ISC",

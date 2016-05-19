@@ -2,12 +2,12 @@ version: '2'
 services:
   nginx:
     links:
-    - bablot_web_node:node
+    - portal:portal
     - landing:landing
     ports:
     - "80:80"
     - "443:443"
-  bablot_web_node:
+  portal:
     ports:
     - "8000:8000"
   landing:
