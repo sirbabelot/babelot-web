@@ -46,8 +46,6 @@ export class Messenger {
   }
 
   private receiveMessage(data) {
-    console.log(data);
-    console.log(data.fromFingerprint);
     let toConvo = this.conversationsMap.get(data.fromFingerprint);
     toConvo.messages.push({ body: data.message });
     this.receivedMessages.push(data.message);

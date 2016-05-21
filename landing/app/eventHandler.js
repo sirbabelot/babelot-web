@@ -26,16 +26,13 @@ document.querySelector('.bablot-chat--input-form').addEventListener('submit', fu
 });
 
 document.addEventListener(messenger.EVENTS.client.nowOnline, function (e) {
-  console.log('This twice.');
   // document.querySelector('#nickname').innerHTML = e.detail.nickname;
 }, false);
 
 document.addEventListener(messenger.EVENTS.business.statusChanged, function (e) {
   if(e.detail.status=='offline'){
-    console.log('Now offline');
     document.querySelector('.bablot-chat--status').classList.add('bablot-chat--status-offline');
   }else{
-    console.log('Now online');
     document.querySelector('.bablot-chat--status').classList.remove('bablot-chat--status-offline');
   }
 }, false);
