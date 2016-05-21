@@ -34,6 +34,7 @@ export class Messenger {
       }
       this.conversationsMap.set(msg.fingerprint, conversation);
       this.currentConversation = conversation;
+      console.log('Call on me.');
       this.sendMessage({message: 'Welcome to Canada'});
     });
 
@@ -42,8 +43,6 @@ export class Messenger {
     });
 
     this.socket.on('direct message', (msg) => this.receiveMessage(msg));
-
-    this.toggleOnline();
   }
 
   private receiveMessage(data) {

@@ -9,7 +9,7 @@ document.querySelector('.bablot-chat--input-form').addEventListener('submit', fu
     e.stopPropagation();
     var msgText = input.value;
     var chatBubbleTemplate = `
-      <div class="bablot-chat--message--sent">
+      <div class="bablot-chat--message bablot-chat--message--sent">
         <div class="bablot-chat--message--content">
           <div class="bablot-chat--message--text">
             ${msgText}
@@ -25,10 +25,6 @@ document.querySelector('.bablot-chat--input-form').addEventListener('submit', fu
     messenger.sendMessage(msgText);
 });
 
-document.addEventListener(messenger.EVENTS.client.nowOnline, function (e) {
-  document.querySelector('#nickname').innerHTML = e.detail.nickname;
-}, false);
-
 document.addEventListener(messenger.EVENTS.business.statusChanged, function (e) {
   if(e.detail.status=='offline'){
     document.querySelector('.bablot-chat--status').classList.add('bablot-chat--status-offline');
@@ -43,7 +39,7 @@ document.addEventListener(messenger.EVENTS.directMessage, function (e) {
     e.stopPropagation();
     var msgText = e.detail.message;
     var chatBubbleTemplate = `
-        <div class="bablot-chat--message--received">
+        <div class="bablot-chat--message bablot-chat--message--received">
           <div class="bablot-chat--message--content">
             <img src="${littleKing}"/>
             <div class="bablot-chat--message--text">

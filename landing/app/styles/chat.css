@@ -41,6 +41,12 @@
   padding-top: 8px;
 }
 
+/** Messages */
+.bablot-chat .bablot-chat--messages {
+  overflow-y: scroll;
+  height: calc(100% - 90px);
+}
+
 .bablot-chat--message--text {
   margin-right: 15px;
   padding-left: 17px;
@@ -52,12 +58,8 @@
   line-height: 2;
   word-wrap: break-word;
   max-width: 75%;
-}
-
-/** Messages */
-.bablot-chat .bablot-chat--messages {
-  overflow-y: scroll;
-  height: calc(100% - 90px);
+  -webkit-animation: jelly 1000ms linear both;
+  animation: jelly 1000ms linear both;
 }
 
 .bablot-chat .bablot-chat--message--sent {
@@ -65,7 +67,6 @@
   display: inline-block;
 
 }
-
 
 .bablot-chat .bablot-chat--message--content {
   margin-top: 10px;
@@ -86,6 +87,10 @@
   max-height: 38px!important;
   margin-right: 10px;
   margin-left: 20px;
+}
+
+.bablot-chat--message {
+ 
 }
 
 .bablot-chat .bablot-chat--message--received .bablot-chat--message--text {
