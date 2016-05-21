@@ -25,10 +25,6 @@ document.querySelector('.bablot-chat--input-form').addEventListener('submit', fu
     messenger.sendMessage(msgText);
 });
 
-document.addEventListener(messenger.EVENTS.client.nowOnline, function (e) {
-  // document.querySelector('#nickname').innerHTML = e.detail.nickname;
-}, false);
-
 document.addEventListener(messenger.EVENTS.business.statusChanged, function (e) {
   if(e.detail.status=='offline'){
     document.querySelector('.bablot-chat--status').classList.add('bablot-chat--status-offline');
