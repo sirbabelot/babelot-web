@@ -3,15 +3,17 @@ import {Http, Headers} from 'angular2/http'
 import {User} from './../models/User'
 import {Request} from './../models/Request'
 import {Conversation} from './../models/Conversation'
+import {ConversationHistory} from './ConversationHistory'
 
 var io = require('socket.io-client')
 var swal = require('sweetalert');
 declare var require: any;
 declare var BABLOT_API_URL: any;
-
+declare var fetch: any;
 
 @Injectable()
 export class Messenger {
+  public fingerprint = 'bablot_portal_experiment';
   public socket: any;
   private roomId: string;
   private businessId: string = 'DEMO_ID';
@@ -21,21 +23,36 @@ export class Messenger {
   public receivedMessages: string[];
   private BABLOT_BUSINESS_ID = 'DEMO_ID';
 
-  constructor() {
+  constructor(public conversationHistory: ConversationHistory) {
+    this.conversationHistory.getPreviewList().then((conversations) => {
+      //Retrieves historic conversations to display in list panel
+      conversations.forEach((conversationData) => {
+        let AFinger = conversationData.convo.AFingerprint;
+        let BFinger = conversationData.convo.BFingerprint;
+        let clientFingerprint = AFinger === this.fingerprint ? BFinger : AFinger;
+        let newConversation = new Conversation(conversationData.convo.RoomId, '', clientFingerprint, conversationData.firstMessage);
+        this.conversationsMap.set(conversationData.convo.RoomId, newConversation);
+      })
+    });
+
     this.socket = io(`${BABLOT_API_URL}/${this.BABLOT_BUSINESS_ID}`);
 
     this.receivedMessages = [];
 
-    this.socket.on('client.nowOnline', (msg) => {
-      let conversation = new Conversation(msg.roomId, msg.nickname, msg.fingerprint);
-      conversation.online = false;
-      if (msg.status == 'online') {
-        conversation.online = true;
+    this.socket.on('client.nowOnline', (msg) => 
+      var client = this.conversationsMap.get(msg.roomId)
+      if(!client){
+        let conversation = new Conversation(msg.roomId, msg.nickname, msg.fingerprint, '');
+        conversation.online = false;
+        if (msg.status == 'online') {
+          conversation.online = true;
+        }
+        this.conversationsMap.set(msg.fingerprint, conversation);
+        this.currentConversation = conversation;
+      }else{
+        client.online = true;
+        console.log('New client now online!', client);
       }
-      this.conversationsMap.set(msg.fingerprint, conversation);
-      this.currentConversation = conversation;
-      console.log('Call on me.');
-      this.sendMessage({message: 'Welcome to Canada'});
     });
 
     this.socket.on('client.statusChanged', (data) => {
@@ -47,20 +64,23 @@ export class Messenger {
 
   private receiveMessage(data) {
     let toConvo = this.conversationsMap.get(data.fromFingerprint);
-    toConvo.messages.push({ body: data.message });
+    toConvo.messages.push({ 
+      FromFingerprint: data.FromFingerprint,
+      body: data.message 
+    });
     this.receivedMessages.push(data.message);
   }
 
   public sendMessage(options) {
     this.currentConversation.messages.push({
-      author: 'me',
+      FromFingerprint: this.fingerprint,
       body: options.message
     });
     this.socket.emit('direct message', {
       roomId: this.currentConversation.roomId,
       message: options.message,
-      fromFingerprint: 'bablot_portal_experiment',
-      toFingerprint: this.currentConversation.fingerprint
+      fromFingerprint: this.fingerprint,
+      toFingerprint: this.currentConversation.roomId
     });
   }
 

@@ -78,7 +78,7 @@ class Messenger {
       nickname: this.nickname,
       fromFingerprint: this.fingerprint,
       toFingerprint: this.businessFingerprint,
-      roomId: this.roomId,
+      roomId: this.fingerprint,
       message
     });
   }

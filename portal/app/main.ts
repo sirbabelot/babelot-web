@@ -5,6 +5,7 @@ import {bootstrap}  from 'angular2/platform/browser'
 import {BabelotApp} from './babelotApp'
 import {User} from './common/models/User'
 import {Messenger} from './common/services/Messenger'
+import {ConversationHistory} from './common/services/ConversationHistory'
 import {Auth} from './common/services/Auth'
 import {HTTP_PROVIDERS, ConnectionBackend} from 'angular2/http'
 import {enableProdMode} from 'angular2/core'
@@ -23,5 +24,6 @@ bootstrap(BabelotApp,[
   provide(LocationStrategy, {useClass: HashLocationStrategy}),
   User,
   Messenger,
+  ConversationHistory,
   Auth
 ]);

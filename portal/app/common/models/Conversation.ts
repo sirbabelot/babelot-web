@@ -9,6 +9,7 @@ export class Conversation {
   constructor(
     public roomId: string,
     public nickname: string,
-    public fingerprint: string
+    public fingerprint: string,
+    public firstMessage: string
     ) {}
 }
