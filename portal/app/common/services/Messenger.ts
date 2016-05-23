@@ -27,7 +27,6 @@ export class Messenger {
     this.conversationHistory.getPreviewList().then((conversations) => {
       //Retrieves historic conversations to display in list panel
       conversations.forEach((conversationData) => {
-        console.log(conversationData);
         let AFinger = conversationData.convo.AFingerprint;
         let BFinger = conversationData.convo.BFingerprint;
         let clientFingerprint = AFinger === this.fingerprint ? BFinger : AFinger;

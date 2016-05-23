@@ -22,7 +22,6 @@ export class ConversationHistory {
       fetch(`${BABLOT_API_URL}/conversation/preview`).then((res) => {
         return res.json();
       }).then((previews)=> {
-        console.log(previews);
         resolve(previews.data)
       }).catch((err)=> {
         console.log(err);
@@ -34,14 +33,12 @@ export class ConversationHistory {
     return fetch(`${BABLOT_API_URL}/conversation/${conversation.roomId}`).then((res) => {
       return res.json();
     }).then((rawConversation) => {
-      console.log(rawConversation);
       var messages = rawConversation.messages.map((message)=> {
         return {
           body: message.Body,
           FromFingerprint: message.FromFingerprint
         }
       });
-
       conversation.messages = messages;
     }).catch((err)=> {
       console.log(err);

@@ -17,7 +17,6 @@ export class ListPanel {
 
   get conversations() {
     var convos: any = [];
-    // debugger
     this.messenger.conversationsMap.forEach((e) => convos.push(e));
     return convos;
   }
