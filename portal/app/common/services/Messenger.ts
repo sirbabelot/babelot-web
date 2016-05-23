@@ -39,25 +39,20 @@ export class Messenger {
 
     this.receivedMessages = [];
 
-    this.socket.on('client.nowOnline', (msg) => {
-       console.log(this.conversationsMap);
-      var client = this.conversationsMap.get(msg.fingerprint)
-      console.log(client);
-      // if(!client){
-        console.log('msg', msg);
+    this.socket.on('client.nowOnline', (msg) => 
+      var client = this.conversationsMap.get(msg.roomId)
+      if(!client){
         let conversation = new Conversation(msg.roomId, msg.nickname, msg.fingerprint, '');
         conversation.online = false;
         if (msg.status == 'online') {
           conversation.online = true;
         }
-
         this.conversationsMap.set(msg.fingerprint, conversation);
         this.currentConversation = conversation;
-        // this.sendMessage({ message: 'Welcome to Canada' });
-      // }else{
-      //   client.online = true;
-      //   console.log('New client now online!', client);
-      // }
+      }else{
+        client.online = true;
+        console.log('New client now online!', client);
+      }
     });
 
     this.socket.on('client.statusChanged', (data) => {
