@@ -72,7 +72,6 @@ export class Messenger {
   }
 
   public sendMessage(options) {
-    console.log('curent conversation', this.currentConversation);
     this.currentConversation.messages.push({
       FromFingerprint: this.fingerprint,
       body: options.message

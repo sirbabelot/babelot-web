@@ -20,7 +20,6 @@ export class ListItem {
   constructor(public messenger: Messenger, public conversationHistory: ConversationHistory) {}
 
   openChatWith(conversation) {
-    console.log('Conversation: ',conversation);
     this.conversationHistory.loadMessageHistory(conversation);
     this.messenger.currentConversation = conversation;
   }

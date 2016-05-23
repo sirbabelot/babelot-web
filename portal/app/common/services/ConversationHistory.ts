@@ -19,18 +19,19 @@ export class ConversationHistory {
 
   getPreviewList(){
     return new Promise((resolve, reject) => {
-      fetch(`${BABLOT_API_URL}/conversation/preview`).then((res) => {
-        return res.json();
-      }).then((previews)=> {
-        resolve(previews.data)
-      }).catch((err)=> {
-        console.log(err);
+      fetch(`${BABLOT_API_URL}/conversation/preview`)
+      .then((res) => {
+          return res.json();
+        }).then((previews)=> {
+          resolve(previews.data)
+        }).catch((err)=> {
+          console.log(err);
+        });
       });
-    });
   }
 
   loadMessageHistory(conversation){
-    return fetch(`${BABLOT_API_URL}/conversation/${conversation.roomId}`).then((res) => {
+    return fetch(`${BABLOT_API_URL}/conversation/${conversation.roomId}`, { method: 'post' }).then((res) => {
       return res.json();
     }).then((rawConversation) => {
       var messages = rawConversation.messages.map((message)=> {
