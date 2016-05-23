@@ -5,6 +5,8 @@
   .info
     .info--name {{ conversation.nickname }}
     .info--preview {{ conversation.online }}
+    div {{ conversation.firstMessage }}
+    div {{ conversation.roomId }}
   .close-icon
     .icon
       button((click)="removeContact(conversation, $event)")
