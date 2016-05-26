@@ -39,7 +39,7 @@ export class Messenger {
 
     this.receivedMessages = [];
 
-    this.socket.on('client.nowOnline', (msg) => 
+    this.socket.on('client.nowOnline', (msg) => {
       var client = this.conversationsMap.get(msg.roomId)
       if(!client){
         let conversation = new Conversation(msg.roomId, msg.nickname, msg.fingerprint, '');

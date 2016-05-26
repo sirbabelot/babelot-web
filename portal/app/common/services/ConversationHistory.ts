@@ -11,12 +11,6 @@ export class ConversationHistory {
   constructor(){
   }
 
-  getOne(fingerprint: string){
-    return new Promise((resolve, reject) => {
-      resolve(this.allData[0]);
-    });
-  }
-
   getPreviewList(){
     return new Promise((resolve, reject) => {
       fetch(`${BABLOT_API_URL}/conversation/preview`)
