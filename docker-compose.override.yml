@@ -9,11 +9,11 @@ services:
     - ./portal:/usr/src/app
     - /usr/src/app/node_modules
     environment:
-      BABLOT_API_URL: 'https://162.243.218.96:9000'
+      BABLOT_API_URL: 'https://dev.api.bablot.co:9000'
   landing:
     environment:
       NODE_ENV: 'development'
-      BABLOT_API_URL: 'https://162.243.218.96:9000'
+      BABLOT_API_URL: 'https://dev.api.bablot.co:9000'
     build: ./landing
     command: npm run dev
     volumes:

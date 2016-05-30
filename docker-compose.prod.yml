@@ -6,10 +6,10 @@ services:
     image: bablot/portal
     command: npm start
     environment:
-      BABLOT_API_URL: 'https://162.243.218.96:9000'
+      BABLOT_API_URL: 'https://dev.api.bablot.co:9000'
   landing:
     environment:
       NODE_ENV: 'production'
-      BABLOT_API_URL: 'https://162.243.218.96:9000'
+      BABLOT_API_URL: 'https://dev.api.bablot.co:9000'
     image: bablot/landing
     command: npm start
